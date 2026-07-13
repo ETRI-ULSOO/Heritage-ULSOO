@@ -319,6 +319,9 @@
       margin: 0;
       font-family: Pretendard, Inter, "Noto Sans KR", system-ui, sans-serif;
       overflow-x: hidden;
+      /* 한국어 어절 단위 줄바꿈: 단어 중간에서 끊기지 않게 (긴 영문/토큰만 예외적으로 분리) */
+      word-break: keep-all;
+      overflow-wrap: break-word;
     }
 
     a {
@@ -1153,6 +1156,11 @@
       .member-avatar {
         max-width: 15rem;
       }
+
+      /* 좁은 화면: 로고 부제(긴 영문)를 숨겨 EN 토글과 겹치지 않게 */
+      header nav > a:first-child span span:last-child {
+        display: none;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1439,8 +1447,18 @@
                   <i :data-lucide="project.icon" class="h-6 w-6 shrink-0 text-amber-400"></i>
                 </div>
                 <p class="text-sm leading-7 text-slate-300" x-text="project.desc"></p>
-                <div class="mt-5 flex items-center justify-between border-t border-slate-800 pt-4">
-                  <span class="text-xs font-bold uppercase text-slate-500" x-text="project.id"></span>
+                <div class="mt-5 flex items-center justify-between gap-3 border-t border-slate-800 pt-4">
+                  <template x-if="project.link">
+                    <a :href="project.link" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-1.5 text-xs font-black text-cyan-300 transition hover:text-cyan-200"
+                       :aria-label="project.title + ' ' + ui.caseVisit">
+                      <span x-text="ui.caseVisit">바로 확인하기</span>
+                      <i data-lucide="arrow-up-right" class="h-3.5 w-3.5"></i>
+                    </a>
+                  </template>
+                  <template x-if="!project.link">
+                    <span class="text-xs font-bold uppercase text-slate-500" x-text="project.id"></span>
+                  </template>
                   <span x-show="project.hasBadge" class="pulse-badge rounded-full border border-amber-300/45 bg-amber-400/10 px-3 py-1 text-xs font-black text-amber-200" x-cloak x-text="ui.badgeWebGL">WebGL 데모 체험 가능</span>
                 </div>
               </div>
@@ -1958,6 +1976,7 @@
               <h3>${escapeHtml(project.title)}</h3>
               <p class="section-kicker" style="margin-top:.5rem">${escapeHtml(project.subtitle)}</p>
               <p>${escapeHtml(project.desc)}</p>
+              ${project.link ? `<a href="${escapeHtml(project.link)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.35rem;margin-top:1rem;color:#5bd0d9;font-size:.8rem;font-weight:900">${escapeHtml(UI.caseVisit)} ↗</a>` : ""}
             </div>
           </article>
         `).join("");

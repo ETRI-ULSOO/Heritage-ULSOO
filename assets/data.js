@@ -23,6 +23,7 @@ const ULSOO_I18N = {
       projectsLede: "연구실의 데모가 아닙니다. 국립중앙박물관의 상설 전시장과 대국민 서비스에서 실제 관람객을 만난 기술입니다.",
       badgeWebGL: "WebGL 데모 체험 가능",
       caseZoom: "자세히 보기",
+      caseVisit: "바로 확인하기",
       achTitle: "연구성과",
       achLede: "성과를 나열하는 대신, 분야별로 무엇을 바꿨는지 보여드립니다. 숫자를 클릭하면 각 분야의 대표 성과를 확인할 수 있습니다.",
       highlightBadge: "대표성과",
@@ -135,12 +136,12 @@ const ULSOO_I18N = {
     ],
 
     projects: [
-      { id: "banga", title: "WebGL 반가사유상", subtitle: "국보 실시간 3D 체험", desc: "반가사유상 두 점(1962-1·1962-2)을 재질·광택까지 재현한 실시간 3D 콘텐츠. 조명·회전·확대를 관람객이 직접 제어하며 불교문화 해설을 함께 제공합니다.", tag: "국립중앙박물관", icon: "gem", img: "assets/img/case-banga.webp", hasBadge: true },
-      { id: "jinmyo", title: "AI 도슨트 '진묘'", subtitle: "RAG 기반 대화형 에이전트", desc: "무령왕릉 출토품 1,125건 전용 AI 챗봇. 유물 메타데이터 109,000건을 임베딩한 검색증강생성 구조로 개념형·조건형 질문에 정확하게 답합니다.", tag: "인공지능 에이전트", icon: "bot", img: "assets/img/case-jinmyo.webp", hasBadge: false },
-      { id: "gwanggaeto", title: "디지털 광개토대왕릉비", subtitle: "박물관 메인홀 상설 콘텐츠", desc: "정밀 3D 스캔 모델로 비문을 확대 탐독할 수 있는 디지털 릉비. 2024년 2월부터 국립중앙박물관 1층 로비에서 관람객을 맞고 있습니다.", tag: "상설 전시", icon: "landmark", img: "assets/img/case-gwanggaeto.webp", hasBadge: false },
-      { id: "hwaseong", title: "초고해상도 화성행궁", subtitle: "기가픽셀 딥줌 뷰어", desc: "정조 화성행궁 그림을 기가픽셀 딥줌(DZI)으로 탐험하는 콘텐츠. 지도 핀을 클릭하면 장면별 해설과 오디오가 연동됩니다.", tag: "기가픽셀", icon: "zoom-in", img: "assets/img/case-hwaseong.webp", hasBadge: false },
-      { id: "route", title: "맞춤형 관람 동선 추천", subtitle: "지식그래프 개인화 안내", desc: "유물 지식그래프의 의미적 연관도를 기반으로 개인 취향에 맞는 관람 동선을 수 초 내에 추천하고 실제 길안내까지 연결합니다.", tag: "개인화 서비스", icon: "route", img: "assets/img/case-route.webp", hasBadge: false },
-      { id: "chic-legacy", title: "'사유의 방' & 메타버스 박물관", subtitle: "CHIC 실증 유산", desc: "반가사유상 극사실 애셋으로 국립중앙박물관 '사유의 방' 전시에 참여하고, 제페토·다중접속 VR로 5개 국립박물관 공간을 메타버스에 재현했습니다.", tag: "XR·메타버스", icon: "orbit", img: "assets/img/case-metaverse.webp", hasBadge: false }
+      { id: "banga", title: "WebGL 반가사유상", subtitle: "국보 실시간 3D 체험", desc: "반가사유상 두 점(1962-1·1962-2)을 재질·광택까지 재현한 실시간 3D 콘텐츠. 조명·회전·확대를 관람객이 직접 제어하며 불교문화 해설을 함께 제공합니다.", tag: "국립중앙박물관", icon: "gem", link: "", img: "assets/img/case-banga.webp", hasBadge: true },
+      { id: "jinmyo", title: "AI 도슨트 '진묘'", subtitle: "RAG 기반 대화형 에이전트", desc: "무령왕릉 출토품 1,125건 전용 AI 챗봇. 유물 메타데이터 109,000건을 임베딩한 검색증강생성 구조로 개념형·조건형 질문에 정확하게 답합니다.", tag: "인공지능 에이전트", icon: "bot", link: "", img: "assets/img/case-jinmyo.webp", hasBadge: false },
+      { id: "gwanggaeto", title: "디지털 광개토대왕릉비", subtitle: "박물관 메인홀 상설 콘텐츠", desc: "정밀 3D 스캔 모델로 비문을 확대 탐독할 수 있는 디지털 릉비. 2024년 2월부터 국립중앙박물관 1층 로비에서 관람객을 맞고 있습니다.", tag: "상설 전시", icon: "landmark", link: "", img: "assets/img/case-gwanggaeto.webp", hasBadge: false },
+      { id: "hwaseong", title: "초고해상도 화성행궁", subtitle: "기가픽셀 딥줌 뷰어", desc: "정조 화성행궁 그림을 기가픽셀 딥줌(DZI)으로 탐험하는 콘텐츠. 지도 핀을 클릭하면 장면별 해설과 오디오가 연동됩니다.", tag: "기가픽셀", icon: "zoom-in", link: "", img: "assets/img/case-hwaseong.webp", hasBadge: false },
+      { id: "route", title: "맞춤형 관람 동선 추천", subtitle: "지식그래프 개인화 안내", desc: "유물 지식그래프의 의미적 연관도를 기반으로 개인 취향에 맞는 관람 동선을 수 초 내에 추천하고 실제 길안내까지 연결합니다.", tag: "개인화 서비스", icon: "route", link: "", img: "assets/img/case-route.webp", hasBadge: false },
+      { id: "chic-legacy", title: "'사유의 방' & 메타버스 박물관", subtitle: "CHIC 실증 유산", desc: "반가사유상 극사실 애셋으로 국립중앙박물관 '사유의 방' 전시에 참여하고, 제페토·다중접속 VR로 5개 국립박물관 공간을 메타버스에 재현했습니다.", tag: "XR·메타버스", icon: "orbit", link: "", img: "assets/img/case-metaverse.webp", hasBadge: false }
     ],
 
     achievementSummary: [
@@ -227,6 +228,7 @@ const ULSOO_I18N = {
       projectsLede: "Not lab demos. These technologies met real visitors in the National Museum of Korea's permanent galleries and in nationwide public services.",
       badgeWebGL: "Live WebGL demo",
       caseZoom: "View larger",
+      caseVisit: "Visit live page",
       achTitle: "Research Impact",
       achLede: "Instead of listing outcomes, we show what changed in each area. Click a number to see the flagship achievements for that category.",
       highlightBadge: "Flagship",
@@ -339,12 +341,12 @@ const ULSOO_I18N = {
     ],
 
     projects: [
-      { id: "banga", title: "WebGL Pensive Bodhisattva", subtitle: "Real-time 3D of a national treasure", desc: "Real-time 3D content reproducing two Pensive Bodhisattva statues (1962-1·1962-2) down to material and sheen. Visitors control lighting, rotation, and zoom while receiving Buddhist-culture commentary.", tag: "National Museum of Korea", icon: "gem", img: "assets/img/case-banga.webp", hasBadge: true },
-      { id: "jinmyo", title: "AI Docent 'Jinmyo'", subtitle: "RAG-based conversational agent", desc: "A dedicated AI chatbot for the 1,125 Muryeong Tomb artifacts. A retrieval-augmented generation architecture embedding 109,000 metadata records answers conceptual and conditional questions accurately.", tag: "AI agent", icon: "bot", img: "assets/img/case-jinmyo.webp", hasBadge: false },
-      { id: "gwanggaeto", title: "Digital Gwanggaeto Stele", subtitle: "Permanent main-hall content", desc: "A precise 3D-scanned model lets visitors zoom in and read the stele inscription. It has greeted visitors in the National Museum's first-floor lobby since February 2024.", tag: "Permanent exhibition", icon: "landmark", img: "assets/img/case-gwanggaeto.webp", hasBadge: false },
-      { id: "hwaseong", title: "Ultra-HD Hwaseong Palace", subtitle: "Gigapixel deep-zoom viewer", desc: "Content for exploring the painting of King Jeongjo's Hwaseong Palace via gigapixel deep zoom (DZI). Clicking map pins links scene-by-scene commentary and audio.", tag: "Gigapixel", icon: "zoom-in", img: "assets/img/case-hwaseong.webp", hasBadge: false },
-      { id: "route", title: "Personalized Tour Route", subtitle: "Knowledge-graph personalized guide", desc: "Based on semantic relevance in the artifact knowledge graph, it recommends a tour route matched to personal taste within seconds and connects to real wayfinding.", tag: "Personalization", icon: "route", img: "assets/img/case-route.webp", hasBadge: false },
-      { id: "chic-legacy", title: "'Room of Contemplation' & Metaverse", subtitle: "CHIC demonstration legacy", desc: "Using hyper-realistic Pensive Bodhisattva assets, we contributed to the National Museum's 'Room of Quiet Contemplation' and recreated five national museums in the metaverse via ZEPETO and multi-user VR.", tag: "XR · Metaverse", icon: "orbit", img: "assets/img/case-metaverse.webp", hasBadge: false }
+      { id: "banga", title: "WebGL Pensive Bodhisattva", subtitle: "Real-time 3D of a national treasure", desc: "Real-time 3D content reproducing two Pensive Bodhisattva statues (1962-1·1962-2) down to material and sheen. Visitors control lighting, rotation, and zoom while receiving Buddhist-culture commentary.", tag: "National Museum of Korea", icon: "gem", link: "", img: "assets/img/case-banga.webp", hasBadge: true },
+      { id: "jinmyo", title: "AI Docent 'Jinmyo'", subtitle: "RAG-based conversational agent", desc: "A dedicated AI chatbot for the 1,125 Muryeong Tomb artifacts. A retrieval-augmented generation architecture embedding 109,000 metadata records answers conceptual and conditional questions accurately.", tag: "AI agent", icon: "bot", link: "", img: "assets/img/case-jinmyo.webp", hasBadge: false },
+      { id: "gwanggaeto", title: "Digital Gwanggaeto Stele", subtitle: "Permanent main-hall content", desc: "A precise 3D-scanned model lets visitors zoom in and read the stele inscription. It has greeted visitors in the National Museum's first-floor lobby since February 2024.", tag: "Permanent exhibition", icon: "landmark", link: "", img: "assets/img/case-gwanggaeto.webp", hasBadge: false },
+      { id: "hwaseong", title: "Ultra-HD Hwaseong Palace", subtitle: "Gigapixel deep-zoom viewer", desc: "Content for exploring the painting of King Jeongjo's Hwaseong Palace via gigapixel deep zoom (DZI). Clicking map pins links scene-by-scene commentary and audio.", tag: "Gigapixel", icon: "zoom-in", link: "", img: "assets/img/case-hwaseong.webp", hasBadge: false },
+      { id: "route", title: "Personalized Tour Route", subtitle: "Knowledge-graph personalized guide", desc: "Based on semantic relevance in the artifact knowledge graph, it recommends a tour route matched to personal taste within seconds and connects to real wayfinding.", tag: "Personalization", icon: "route", link: "", img: "assets/img/case-route.webp", hasBadge: false },
+      { id: "chic-legacy", title: "'Room of Contemplation' & Metaverse", subtitle: "CHIC demonstration legacy", desc: "Using hyper-realistic Pensive Bodhisattva assets, we contributed to the National Museum's 'Room of Quiet Contemplation' and recreated five national museums in the metaverse via ZEPETO and multi-user VR.", tag: "XR · Metaverse", icon: "orbit", link: "", img: "assets/img/case-metaverse.webp", hasBadge: false }
     ],
 
     achievementSummary: [
