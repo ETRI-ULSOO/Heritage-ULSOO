@@ -17,6 +17,7 @@ const ULSOO_I18N = {
       journeyTitle: "연구 여정",
       journeyLede: "2020년 문화유산의 디지털 기록에서 출발해, 데이터를 연결하는 지능형 플랫폼을 거쳐, 이제 훼손된 원형을 되살리는 초정밀 복원에 도전합니다. 세 개의 국가 R&D가 하나의 로드맵을 이룹니다.",
       inProgress: "진행 중",
+      journeySite: "과제 홈페이지 방문",
       techTitle: "핵심기술",
       techLede: "한 분야의 기술이 아니라, 데이터의 획득부터 지능형 분석·복원·표준화까지 이어지는 전 주기 기술 체계를 보유합니다.",
       projectsTitle: "실증사례",
@@ -57,7 +58,7 @@ const ULSOO_I18N = {
 
     journey: [
       {
-        id: "chic", period: "2020 – 2022", status: "done", verb: "기록하다", title: "CHIC",
+        id: "chic", siteUrl: "https://sites.google.com/view/intelligent-curation/home", period: "2020 – 2022", status: "done", verb: "기록하다", title: "CHIC",
         subtitle: "애셋 기반 지능형 큐레이션 및 서비스 운영기술",
         funder: "문화체육관광부 · 한국콘텐츠진흥원",
         mission: "문화유산을 고품질 디지털 애셋으로 표준화하고, 큐레이터가 직접 쓰는 AI 큐레이션 플랫폼을 국립중앙박물관에서 실증했습니다.",
@@ -69,7 +70,7 @@ const ULSOO_I18N = {
         partners: "국립중앙박물관 · 국립무형유산원 실증 / 문체부 장관표창(2022)"
       },
       {
-        id: "much", period: "2023 – 2025", status: "done", verb: "연결하다", title: "MUCH",
+        id: "much", siteUrl: "https://sites.google.com/view/much0/much", period: "2023 – 2025", status: "done", verb: "연결하다", title: "MUCH",
         subtitle: "인공지능 기반 디지털 헤리티지 공유 플랫폼",
         funder: "문화체육관광부 · 한국콘텐츠진흥원",
         mission: "세계 최초의 문화유산 4계층 데이터 패브릭과 국내 최초 디지털 데이터 생성 표준을 정립하고, 5대 대국민 서비스로 실증했습니다.",
@@ -81,7 +82,7 @@ const ULSOO_I18N = {
         partners: "국립중앙박물관 테스트베드 / 국립중앙도서관 MOU·기술이전"
       },
       {
-        id: "ulsoo", period: "2026 –", status: "active", verb: "되살리다", title: "ULSOO",
+        id: "ulsoo", siteUrl: "", period: "2026 –", status: "active", verb: "되살리다", title: "ULSOO",
         subtitle: "동산 문화유산 초정밀 디지털 복원·재현 기술",
         funder: "국가유산청",
         mission: "10억 픽셀 초고해상도 스캔과 멀티모달(UV·IR·XRF) 분석, 생성형 AI를 결합해 훼손된 문화유산의 원형을 과학적으로 복원하는 의사결정 지원 체계를 개발합니다.",
@@ -222,6 +223,7 @@ const ULSOO_I18N = {
       journeyTitle: "Research Journey",
       journeyLede: "Starting from the digital recording of cultural heritage in 2020, through an intelligent platform that connects data, we now take on ultra-precise restoration that revives damaged originals. Three national R&D programs form a single roadmap.",
       inProgress: "In progress",
+      journeySite: "Visit project site",
       techTitle: "Core Technologies",
       techLede: "Not a single field, but a full-cycle technology system spanning data capture, intelligent analysis, restoration, and standardization.",
       projectsTitle: "Projects",
@@ -262,7 +264,7 @@ const ULSOO_I18N = {
 
     journey: [
       {
-        id: "chic", period: "2020 – 2022", status: "done", verb: "Record.", title: "CHIC",
+        id: "chic", siteUrl: "https://sites.google.com/view/intelligent-curation/home", period: "2020 – 2022", status: "done", verb: "Record.", title: "CHIC",
         subtitle: "Asset-based Intelligent Curation & Service Platform",
         funder: "Ministry of Culture, Sports and Tourism · KOCCA",
         mission: "We standardized cultural heritage into high-quality digital assets and demonstrated an AI curation platform used directly by curators at the National Museum of Korea.",
@@ -274,7 +276,7 @@ const ULSOO_I18N = {
         partners: "Demonstrated at the National Museum of Korea & National Intangible Heritage Center / Minister's Commendation (2022)"
       },
       {
-        id: "much", period: "2023 – 2025", status: "done", verb: "Connect.", title: "MUCH",
+        id: "much", siteUrl: "https://sites.google.com/view/much0/much", period: "2023 – 2025", status: "done", verb: "Connect.", title: "MUCH",
         subtitle: "AI-based Digital Heritage Sharing Platform",
         funder: "Ministry of Culture, Sports and Tourism · KOCCA",
         mission: "We established the world's first four-layer cultural-heritage data fabric and Korea's first digital-data creation standard, demonstrated through five nationwide public services.",
@@ -286,7 +288,7 @@ const ULSOO_I18N = {
         partners: "National Museum of Korea testbed / National Library of Korea MOU & tech transfer"
       },
       {
-        id: "ulsoo", period: "2026 –", status: "active", verb: "Revive.", title: "ULSOO",
+        id: "ulsoo", siteUrl: "", period: "2026 –", status: "active", verb: "Revive.", title: "ULSOO",
         subtitle: "Ultra-precise Digital Restoration of Movable Heritage",
         funder: "Korea Heritage Service",
         mission: "We are developing a decision-support system that scientifically restores damaged heritage by combining gigapixel scanning, multimodal (UV·IR·XRF) analysis, and generative AI.",

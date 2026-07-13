@@ -168,3 +168,11 @@
 - **실증사례 바로가기 링크(준비)**: 6개 project에 `link` 필드 추가(현재 전부 빈 값 → 버튼 미표시). 링크가 있는 카드에만 좌하단 "바로 확인하기 ↗"(시안, target=_blank rel=noopener) 자동 표시. ui.caseVisit(한/영) 추가, CDN 폴백에도 반영. 임시 링크로 렌더 검증 후 원복
 - **미해결**: 각 사례의 실제 공개 URL(사용자 제공 대기) → 받는 대로 data.js link 채워 재배포
 - 검증: 미리보기(1280/375) 텍스트 정렬·헤더·링크 버튼 조건부 표시 전부 통과
+
+### 14차 작업 — 지난 과제(CHIC·MUCH) 홈페이지 링크 연결
+- 연구 여정 CHIC/MUCH 카드에 지난 과제 공식 사이트 링크 추가(핵심 연구 설명=기존 subtitle+mission+highlights 바로 아래 배치)
+  - CHIC → https://sites.google.com/view/intelligent-curation/home
+  - MUCH → https://sites.google.com/view/much0/much
+  - ULSOO → 현재 진행 과제(이 사이트)라 링크 없음
+- data.js journey에 siteUrl 필드(한/영 공통), ui.journeySite(한 "과제 홈페이지 방문" / 영 "Visit project site") 추가, "과제 홈페이지 방문 ↗"(시안, target=_blank rel=noopener) 조건부 렌더, CDN 폴백에도 반영
+- 검증: KO/EN에서 CHIC·MUCH 링크 표시·URL 정확, ULSOO 미표시 확인. 미리보기 통과

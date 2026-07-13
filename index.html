@@ -1334,6 +1334,14 @@
                 <p class="mt-1 text-sm font-bold text-cyan-300" x-text="j.subtitle"></p>
                 <p class="mt-2 text-xs font-bold text-slate-500" x-text="j.funder + ' | ' + j.period"></p>
                 <p class="mt-4 text-sm leading-7 text-slate-300" x-text="j.mission"></p>
+                <template x-if="j.siteUrl">
+                  <a :href="j.siteUrl" target="_blank" rel="noopener noreferrer"
+                     class="mt-4 inline-flex items-center gap-1.5 text-sm font-black text-cyan-300 transition hover:text-cyan-200"
+                     :aria-label="j.title + ' ' + ui.journeySite">
+                    <span x-text="ui.journeySite">과제 홈페이지 방문</span>
+                    <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                  </a>
+                </template>
               </div>
               <div>
                 <div class="achievement-list">
@@ -1924,6 +1932,7 @@
               <h3 style="margin-top:.5rem">${escapeHtml(j.title)} — ${escapeHtml(j.subtitle)}</h3>
               <p style="color:#94a3b8;font-size:.8rem;font-weight:700">${escapeHtml(j.funder)} | ${escapeHtml(j.period)}${j.status === "active" ? " · " + escapeHtml(UI.inProgress) : ""}</p>
               <p style="color:#cbd5e1">${escapeHtml(j.mission)}</p>
+              ${j.siteUrl ? `<a href="${escapeHtml(j.siteUrl)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.35rem;color:#5bd0d9;font-size:.85rem;font-weight:900">${escapeHtml(UI.journeySite)} ↗</a>` : ""}
               <ul style="color:#cbd5e1;line-height:1.9;padding-left:1.2rem">${j.highlights.map((h) => `<li>${escapeHtml(h)}</li>`).join("")}</ul>
               <p style="color:#94a3b8;font-size:.8rem;font-weight:700">${escapeHtml(j.partners)}</p>
             </div>
