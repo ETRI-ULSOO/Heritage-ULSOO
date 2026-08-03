@@ -10,6 +10,9 @@
   <meta property="og:image" content="https://etri-ulsoo.github.io/Heritage-ULSOO/assets/img/og-cover.webp" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=East+Sea+Dokdo&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/data.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -34,14 +37,23 @@
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
     :root {
-      --ulsoo-ink: #050a14;
+      /* 먹과 한지 (Meok & Hanji) — docs/STYLE_REF_MeokHanji.md 단일 원천 */
+      --hanji: #e7e0d2;
+      --meok: #171310;
+      --baekja: #f2ede2;
+      --hoebaek: #cfc7b4;
+      --dammuk: #4f4839;
+      --geum: #d6a452;
+      --geum-deep: #7d5a1c;
+      --seolbaek: #f7f3ea;
+      --font-serif-ko: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+      --font-brush: 'East Sea Dokdo', cursive;
+      /* 오방색 — 로고 마크 전용 (UI 팔레트에서는 은퇴) */
       --ulsoo-navy: #173d7a;
-      --ulsoo-deep-blue: #102852;
       --ulsoo-teal: #249aa4;
       --ulsoo-gold: #d6a452;
       --ulsoo-red: #9a2b24;
       --ulsoo-coral: #e45f42;
-      --ulsoo-cream: #fffaf0;
       --mt-fast: 180ms;
       --mt-base: 320ms;
       --mt-slow: 650ms;
@@ -49,17 +61,16 @@
     }
 
     html {
-      background: var(--ulsoo-ink);
+      background: var(--hanji);
       scroll-behavior: smooth;
     }
 
     body {
-      background:
-        radial-gradient(circle at 15% 24%, rgba(154, 43, 36, 0.16), transparent 25rem),
-        radial-gradient(circle at 77% 18%, rgba(36, 154, 164, 0.2), transparent 30rem),
-        radial-gradient(circle at 52% 58%, rgba(214, 164, 82, 0.12), transparent 34rem),
-        linear-gradient(180deg, #050a14 0%, #07192b 48%, #050a14 100%);
-      color: var(--ulsoo-cream);
+      background-color: var(--hanji);
+      background-image: url('assets/img/hanji-texture.webp');
+      background-size: 900px auto;
+      background-blend-mode: multiply;
+      color: var(--meok);
       letter-spacing: 0;
     }
 
@@ -68,37 +79,29 @@
     }
 
     :focus-visible {
-      outline: 2px solid var(--ulsoo-teal);
+      outline: 2px solid var(--meok);
       outline-offset: 3px;
       border-radius: 0.25rem;
     }
 
+    /* heritage-grid: 플랫 원칙에 따라 격자 오버레이 비활성 (마크업은 유지) */
     .heritage-grid {
-      background-image:
-        linear-gradient(rgba(214, 164, 82, 0.09) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(36, 154, 164, 0.09) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: linear-gradient(to bottom, transparent, black 12%, black 72%, transparent);
+      display: none;
     }
 
     .glass-card {
-      border: 1px solid rgba(214, 164, 82, 0.2);
-      background: rgba(7, 16, 31, 0.68);
-      backdrop-filter: blur(14px);
-      transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease, background 300ms ease;
+      border: 1px solid var(--hoebaek);
+      background: var(--baekja);
+      transition: transform 300ms ease, border-color 300ms ease;
     }
 
     .glass-card:hover {
-      transform: translateY(-0.5rem);
-      border-color: rgba(36, 154, 164, 0.78);
-      box-shadow: 0 0 24px rgba(36, 154, 164, 0.24), 0 0 34px rgba(214, 164, 82, 0.12);
+      transform: translateY(-0.4rem);
+      border-color: var(--meok);
     }
 
     .window-card {
-      background:
-        linear-gradient(180deg, rgba(11, 24, 43, 0.86), rgba(5, 10, 20, 0.82)),
-        radial-gradient(circle at 100% 0%, rgba(36, 154, 164, 0.16), transparent 20rem),
-        radial-gradient(circle at 0% 100%, rgba(154, 43, 36, 0.12), transparent 17rem);
+      background: var(--baekja);
     }
 
     .pulse-badge {
@@ -106,14 +109,8 @@
     }
 
     @keyframes pulseBadge {
-      0%, 100% {
-        box-shadow: 0 0 0 rgba(214, 164, 82, 0);
-        opacity: 0.9;
-      }
-      50% {
-        box-shadow: 0 0 22px rgba(214, 164, 82, 0.42);
-        opacity: 1;
-      }
+      0%, 100% { opacity: 0.55; }
+      50% { opacity: 1; }
     }
 
     .ulsoo-logo-mark {
@@ -122,22 +119,30 @@
     }
 
     .logo-shell {
-      border: 1px solid rgba(214, 164, 82, 0.3);
-      background: linear-gradient(145deg, rgba(255, 250, 240, 0.08), rgba(36, 154, 164, 0.08));
-      box-shadow: 0 0 32px rgba(214, 164, 82, 0.16);
+      border: 0;
+      background: none;
     }
 
     .hero-logo-panel {
-      border: 1px solid rgba(214, 164, 82, 0.28);
-      background:
-        radial-gradient(circle at 48% 26%, rgba(255, 250, 240, 0.08), transparent 13rem),
-        linear-gradient(160deg, rgba(255, 250, 240, 0.06), rgba(5, 10, 20, 0.76));
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+      border: 1px solid var(--hoebaek);
+      background: var(--baekja);
     }
 
     .logo-shell .ulsoo-logo-mark {
       width: 3rem;
       height: 3rem;
+    }
+
+    /* 붓글씨 워드마크 — 획의 자연 간격 보존(네거티브 트래킹 금지) */
+    .hero-wordmark {
+      margin: 0.4rem 0 0;
+      font-family: var(--font-brush);
+      font-size: clamp(4.5rem, 11vw, 7.5rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      color: var(--meok);
+      transform: rotate(-1.2deg);
     }
 
     .hero-logo-panel .ulsoo-logo-mark {
@@ -166,11 +171,11 @@
       align-items: center;
       justify-content: space-between;
       gap: 0.75rem;
-      border: 1px solid rgba(214, 164, 82, 0.18);
+      border: 1px solid var(--hoebaek);
       border-radius: 0.25rem;
-      background: rgba(7, 16, 31, 0.72);
+      background: var(--baekja);
       padding: 1rem;
-      color: rgba(255, 250, 240, 0.72);
+      color: var(--dammuk);
       font-weight: 900;
       text-align: left;
       cursor: pointer;
@@ -180,9 +185,9 @@
     .achievement-tab:hover,
     .achievement-tab.is-active {
       transform: translateY(-0.15rem);
-      border-color: rgba(36, 154, 164, 0.65);
-      background: linear-gradient(135deg, rgba(36, 154, 164, 0.18), rgba(214, 164, 82, 0.1));
-      color: var(--ulsoo-cream);
+      border-color: var(--meok);
+      background: var(--seolbaek);
+      color: var(--meok);
     }
 
     .achievement-stat-tab {
@@ -199,11 +204,9 @@
     }
 
     .achievement-panel {
-      border: 1px solid rgba(214, 164, 82, 0.24);
+      border: 1px solid var(--hoebaek);
       border-radius: 0.25rem;
-      background:
-        radial-gradient(circle at 88% 8%, rgba(36, 154, 164, 0.14), transparent 22rem),
-        linear-gradient(160deg, rgba(7, 16, 31, 0.84), rgba(5, 10, 20, 0.78));
+      background: var(--baekja);
       padding: 1.5rem;
     }
 
@@ -215,9 +218,9 @@
     }
 
     .achievement-summary {
-      border: 1px solid rgba(36, 154, 164, 0.22);
+      border: 1px solid var(--hoebaek);
       border-radius: 0.25rem;
-      background: rgba(255, 250, 240, 0.045);
+      background: var(--seolbaek);
       padding: 1.25rem;
     }
 
@@ -227,27 +230,25 @@
     }
 
     .achievement-item {
-      border: 1px solid rgba(255, 250, 240, 0.12);
+      border: 1px solid var(--hoebaek);
       border-radius: 0.25rem;
-      background: rgba(5, 10, 20, 0.58);
+      background: var(--seolbaek);
       padding: 1rem;
-      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+      transition: transform 220ms ease, border-color 220ms ease;
       animation: fadeSlideUp 0.45s var(--ease-brush) both;
       animation-delay: calc(var(--d, 0) * 55ms);
     }
 
     .achievement-item:hover {
       transform: translateY(-0.25rem);
-      border-color: rgba(36, 154, 164, 0.55);
-      box-shadow: 0 0 20px rgba(36, 154, 164, 0.18);
+      border-color: var(--meok);
     }
 
     .achievement-item.is-highlight {
       position: relative;
       overflow: hidden;
-      border-color: rgba(214, 164, 82, 0.52);
-      background: linear-gradient(135deg, rgba(214, 164, 82, 0.17), rgba(7, 16, 31, 0.72));
-      box-shadow: 0 0 26px rgba(214, 164, 82, 0.16);
+      border-color: var(--geum-deep);
+      background: var(--baekja);
     }
 
     .achievement-item.is-highlight::after {
@@ -256,7 +257,7 @@
       inset: 0;
       pointer-events: none;
       transform: translateX(-130%);
-      background: linear-gradient(115deg, transparent 42%, rgba(214, 164, 82, 0.13) 50%, transparent 58%);
+      background: linear-gradient(115deg, transparent 42%, rgba(214, 164, 82, 0.22) 50%, transparent 58%);
       animation: goldSweep 6s ease-in-out infinite;
     }
 
@@ -273,41 +274,53 @@
     .achievement-date {
       display: inline-flex;
       border-radius: 0.25rem;
-      background: var(--ulsoo-gold);
+      background: var(--meok);
       padding: 0.25rem 0.7rem;
-      color: #07101f;
+      color: var(--seolbaek);
       font-size: 0.75rem;
       font-weight: 900;
     }
 
-    .text-amber-400,
-    .text-amber-300 {
-      color: #e8bb68 !important;
+    /* Tailwind 유틸리티 재매핑 — 다크 팔레트 클래스를 먹·한지 토큰으로 (리스킨 2026-08-03) */
+    .text-amber-400, .text-amber-300, .text-amber-200,
+    .text-cyan-400, .text-cyan-300, .text-cyan-200, .text-cyan-100,
+    .text-emerald-300 {
+      color: var(--geum-deep) !important;
     }
 
-    .text-cyan-400,
-    .text-cyan-300,
-    .text-cyan-200,
-    .text-cyan-100 {
-      color: #5bd0d9 !important;
+    .text-white, .text-slate-200 {
+      color: var(--meok) !important;
     }
 
-    [class*="border-cyan-400"],
-    [class*="border-cyan-300"] {
-      border-color: rgba(36, 154, 164, 0.48) !important;
+    .text-slate-300, .text-slate-400, .text-slate-500 {
+      color: var(--dammuk) !important;
     }
 
-    [class*="bg-cyan-400"] {
-      background-color: rgba(36, 154, 164, 0.13) !important;
+    [class*="border-cyan-"], [class*="border-amber-"],
+    [class*="border-slate-"] {
+      border-color: var(--hoebaek) !important;
     }
 
-    [class*="bg-amber-500"],
-    [class*="bg-amber-400"] {
-      background-color: var(--ulsoo-gold) !important;
+    [class*="bg-cyan-400"], [class*="bg-amber-400/10"] {
+      background-color: rgba(125, 90, 28, 0.08) !important;
     }
 
-    [class*="shadow-amberGlow"] {
-      box-shadow: 0 0 30px rgba(214, 164, 82, 0.24) !important;
+    [class*="bg-slate-9"], [class*="bg-slate-8"], [class*="bg-black"] {
+      background-color: var(--baekja) !important;
+    }
+
+    [class*="bg-amber-500"], .bg-amber-400\/90, .bg-amber-400,
+    [class*="bg-emerald-400"], [class*="bg-red-400"] {
+      background-color: var(--meok) !important;
+    }
+
+    /* 카드 헤더 신호등 점 — 먹 농담 3단계 (오방색 대신 단색 계조) */
+    .window-card [aria-hidden="true"] > span:nth-child(1) { background-color: var(--hoebaek) !important; }
+    .window-card [aria-hidden="true"] > span:nth-child(2) { background-color: var(--dammuk) !important; }
+    .window-card [aria-hidden="true"] > span:nth-child(3) { background-color: var(--meok) !important; }
+
+    [class*="shadow-amberGlow"], [class*="shadow-cyanGlow"] {
+      box-shadow: none !important;
     }
 
     /* CDN fallback: keeps the single HTML usable when external scripts are blocked. */
@@ -333,9 +346,9 @@
       position: fixed;
       inset: 0 0 auto 0;
       z-index: 50;
-      border-bottom: 1px solid rgba(214, 164, 82, 0.24);
-      background: rgba(5, 10, 20, 0.82);
-      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--hoebaek);
+      background: rgba(231, 224, 210, 0.92);
+      backdrop-filter: blur(12px);
     }
 
     header nav, footer > div, section > .mx-auto {
@@ -363,27 +376,26 @@
       place-items: center;
       width: 3.25rem;
       height: 3.25rem;
-      border: 1px solid rgba(214, 164, 82, 0.42);
-      border-radius: 0.25rem;
-      background: rgba(255, 250, 240, 0.08);
-      color: var(--ulsoo-gold);
+      border: 0;
+      background: none;
+      color: var(--meok);
       font-weight: 900;
-      box-shadow: 0 0 28px rgba(214,164,82,0.2);
     }
 
     header nav > a:first-child span span:first-child {
       display: block;
-      color: var(--ulsoo-gold);
-      font-size: 1.25rem;
-      font-weight: 900;
-      line-height: 1.2;
+      font-family: var(--font-brush);
+      color: var(--meok);
+      font-size: 1.9rem;
+      font-weight: 400;
+      line-height: 1;
     }
 
     header nav > a:first-child span span:last-child {
       display: block;
       max-width: 18rem;
       overflow: hidden;
-      color: rgba(255, 250, 240, 0.64);
+      color: var(--dammuk);
       font-size: 0.75rem;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -399,13 +411,15 @@
       display: flex;
       align-items: center;
       gap: 1.75rem;
-      color: rgba(255, 250, 240, 0.78);
+      color: var(--meok);
       font-size: 0.875rem;
       font-weight: 700;
     }
 
     .nav-links a:hover {
-      color: #5bd0d9;
+      color: var(--geum-deep);
+      text-decoration: underline;
+      text-underline-offset: 5px;
     }
 
     .lang-toggle {
@@ -414,10 +428,10 @@
       justify-content: center;
       height: 2.4rem;
       padding: 0 0.85rem;
-      border-radius: 0.25rem;
-      border: 1px solid rgba(214, 164, 82, 0.4);
-      background: rgba(255, 250, 240, 0.06);
-      color: var(--ulsoo-gold);
+      border-radius: 999px;
+      border: 1px solid var(--meok);
+      background: none;
+      color: var(--meok);
       font-family: inherit;
       font-size: 0.8rem;
       font-weight: 900;
@@ -426,15 +440,15 @@
     }
 
     .lang-toggle:hover {
-      border-color: rgba(36, 154, 164, 0.6);
-      color: #e8bb68;
+      background: var(--meok);
+      color: var(--seolbaek);
     }
 
-    header nav a.is-current {
-      color: #5bd0d9 !important;
+    header .nav-links a.is-current {
+      color: var(--geum-deep) !important;
       text-decoration: underline;
       text-underline-offset: 6px;
-      text-decoration-color: rgba(91, 208, 217, 0.6);
+      text-decoration-color: var(--geum-deep);
     }
 
     header > div.mobile-menu {
@@ -451,7 +465,7 @@
       right: 0;
       bottom: -1px;
       height: 2px;
-      background: rgba(255, 250, 240, 0.06);
+      background: rgba(23, 19, 16, 0.08);
     }
 
     .scroll-progress span {
@@ -459,7 +473,7 @@
       height: 100%;
       transform-origin: left;
       transform: scaleX(0);
-      background: linear-gradient(90deg, var(--ulsoo-teal), var(--ulsoo-gold));
+      background: var(--meok);
     }
 
     main {
@@ -495,7 +509,8 @@
     #home h1 {
       max-width: 64rem;
       margin: 0;
-      color: #fff;
+      font-family: var(--font-serif-ko);
+      color: var(--meok);
       font-size: clamp(2.7rem, 6vw, 4.6rem);
       font-weight: 900;
       line-height: 1.08;
@@ -506,7 +521,7 @@
     #home h1 + p {
       max-width: 42rem;
       margin-top: 1.5rem;
-      color: #cbd5e1;
+      color: var(--dammuk);
       font-size: 1.18rem;
       line-height: 1.75;
     }
@@ -523,22 +538,21 @@
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      border-radius: 0.25rem;
-      padding: 1rem 1.5rem;
-      font-weight: 900;
+      border-radius: 999px;
+      padding: 0.85rem 1.6rem;
+      font-weight: 800;
       transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
     }
 
     #home .hero-ctas a:first-child {
-      background: linear-gradient(135deg, var(--ulsoo-gold), #f2c46d);
-      color: #07101f;
-      box-shadow: 0 0 28px rgba(214,164,82,0.28);
+      background: var(--meok);
+      color: var(--seolbaek);
     }
 
     #home .hero-ctas a:last-child {
-      border: 1px solid rgba(36, 154, 164, 0.55);
-      background: rgba(36, 154, 164, 0.14);
-      color: #dffbff;
+      border: 1px solid var(--meok);
+      background: none;
+      color: var(--meok);
     }
 
     #home .hero-ctas a:hover {
@@ -567,16 +581,16 @@
       width: 100%;
       margin-top: 1.75rem;
       overflow: hidden;
-      border: 1px solid rgba(214, 164, 82, 0.22);
+      border: 1px solid var(--hoebaek);
       border-radius: 0.25rem;
-      background: rgba(255, 250, 240, 0.08);
+      background: var(--hoebaek);
       text-align: center;
       font-size: 0.75rem;
     }
 
     .kpi-grid > div {
       padding: 1rem 0.5rem;
-      background: rgba(5, 10, 20, 0.55);
+      background: var(--baekja);
     }
 
     .kpi-grid b {
@@ -588,7 +602,7 @@
     }
 
     .kpi-grid span {
-      color: #94a3b8;
+      color: var(--dammuk);
     }
 
     .scroll-cue {
@@ -596,7 +610,7 @@
       bottom: 1.5rem;
       left: 50%;
       transform: translateX(-50%);
-      color: rgba(255, 250, 240, 0.45);
+      color: var(--dammuk);
       animation: cueBounce 2.4s ease-in-out infinite;
       transition: opacity var(--mt-base);
     }
@@ -636,14 +650,14 @@
       margin: 0 0.75rem 1.7rem;
       align-self: flex-end;
       border-radius: 999px;
-      background: linear-gradient(90deg, rgba(36,154,164,0.7), rgba(214,164,82,0.7));
-      opacity: 0.35;
+      background: var(--hoebaek);
+      opacity: 1;
       transition: opacity var(--mt-base);
     }
 
     .journey-line.is-past {
       opacity: 1;
-      background: linear-gradient(90deg, var(--ulsoo-gold), var(--ulsoo-teal));
+      background: var(--meok);
     }
 
     .journey-node {
@@ -654,14 +668,14 @@
       background: none;
       border: 0;
       cursor: pointer;
-      color: rgba(255, 250, 240, 0.72);
+      color: var(--dammuk);
       font-family: inherit;
     }
 
     .journey-node .journey-period {
       font-size: 0.75rem;
       font-weight: 700;
-      color: #94a3b8;
+      color: var(--dammuk);
       white-space: nowrap;
     }
 
@@ -675,8 +689,8 @@
       width: 14px;
       height: 14px;
       border-radius: 999px;
-      border: 2px solid var(--ulsoo-teal);
-      background: #07101f;
+      border: 2px solid var(--hoebaek);
+      background: var(--baekja);
       transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
     }
 
@@ -685,27 +699,28 @@
     }
 
     .journey-node.is-active {
-      color: var(--ulsoo-cream);
+      color: var(--meok);
     }
 
     .journey-node.is-active .journey-dot {
-      background: var(--ulsoo-gold);
-      border-color: var(--ulsoo-gold);
+      background: var(--meok);
+      border-color: var(--meok);
       transform: scale(1.25);
     }
 
     .journey-verb {
-      color: var(--ulsoo-gold);
+      font-family: var(--font-serif-ko);
+      color: var(--geum-deep);
       font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 900;
-      line-height: 1.2;
+      font-weight: 600;
+      line-height: 1.25;
     }
 
     /* 기술 아코디언 */
     .tech-acc {
-      border: 1px solid rgba(255, 250, 240, 0.12);
+      border: 1px solid var(--hoebaek);
       border-radius: 0.25rem;
-      background: rgba(5, 10, 20, 0.58);
+      background: var(--seolbaek);
     }
 
     .tech-acc + .tech-acc {
@@ -720,7 +735,7 @@
       gap: 1rem;
       padding: 0.9rem 1rem;
       text-align: left;
-      color: var(--ulsoo-cream);
+      color: var(--meok);
       font-weight: 800;
       font-size: 0.95rem;
       font-family: inherit;
@@ -731,11 +746,11 @@
     }
 
     .tech-acc > button:hover {
-      background: rgba(255, 250, 240, 0.03);
+      background: rgba(23, 19, 16, 0.03);
     }
 
     .tech-acc.is-open {
-      border-color: rgba(36, 154, 164, 0.55);
+      border-color: var(--meok);
     }
 
     .tech-body-wrap {
@@ -755,7 +770,7 @@
     .tech-body {
       margin: 0;
       padding: 0 1rem 1rem;
-      color: #cbd5e1;
+      color: var(--dammuk);
       font-size: 0.9rem;
       line-height: 1.75;
     }
@@ -774,9 +789,8 @@
     }
 
     @keyframes chipPulse {
-      0% { box-shadow: 0 0 0 rgba(36,154,164,0); }
-      50% { box-shadow: 0 0 14px rgba(36,154,164,0.55); }
-      100% { box-shadow: 0 0 0 rgba(36,154,164,0); }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
 
     /* 실증사례 카드 이미지 */
@@ -784,7 +798,7 @@
       position: relative;
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      background: #0f172a;
+      background: var(--hoebaek);
       cursor: zoom-in;
     }
 
@@ -803,10 +817,10 @@
       place-items: center;
       align-content: center;
       gap: 0.4rem;
-      background: rgba(5, 10, 20, 0.55);
+      background: rgba(23, 19, 16, 0.62);
       opacity: 0;
       transition: opacity var(--mt-base);
-      color: #dffbff;
+      color: var(--seolbaek);
       font-weight: 800;
       font-size: 0.8rem;
     }
@@ -827,9 +841,9 @@
       position: relative;
       aspect-ratio: 1 / 1;
       overflow: hidden;
-      border: 1px solid rgba(51, 65, 85, 0.7);
+      border: 1px solid var(--hoebaek);
       border-radius: 0.25rem;
-      background: rgba(255, 250, 240, 0.04);
+      background: var(--seolbaek);
       transition: transform var(--mt-base) var(--ease-brush), box-shadow var(--mt-base);
     }
 
@@ -840,7 +854,7 @@
       place-items: center;
       font-size: 3rem;
       font-weight: 900;
-      color: var(--ulsoo-gold);
+      color: var(--geum-deep);
     }
 
     .member-avatar img {
@@ -851,15 +865,12 @@
       display: block;
     }
 
-    #people .member-card:nth-child(1) { --accent: var(--ulsoo-gold); }
-    #people .member-card:nth-child(2) { --accent: var(--ulsoo-teal); }
-    #people .member-card:nth-child(3) { --accent: #4f74c2; }
-    #people .member-card:nth-child(4) { --accent: var(--ulsoo-coral); }
+    #people .member-card { --accent: var(--meok); }
 
     @media (hover: hover) {
       .member-card:hover .member-avatar {
         transform: translateY(-4px);
-        box-shadow: 0 10px 28px color-mix(in srgb, var(--accent) 40%, transparent);
+        border-color: var(--accent);
       }
     }
 
@@ -902,10 +913,10 @@
       place-items: center;
       width: 2.75rem;
       height: 2.75rem;
-      border: 1px solid rgba(214, 164, 82, 0.4);
-      border-radius: 0.25rem;
-      background: rgba(5, 10, 20, 0.85);
-      color: var(--ulsoo-gold);
+      border: 1px solid var(--meok);
+      border-radius: 999px;
+      background: var(--meok);
+      color: var(--seolbaek);
       font-weight: 900;
       cursor: pointer;
       opacity: 0;
@@ -933,32 +944,103 @@
     }
 
     #projects {
-      border-block: 1px solid rgba(30, 41, 59, 0.8);
-      background: rgba(2, 6, 23, 0.5);
+      border-block: 1px solid var(--hoebaek);
     }
 
     #people {
-      border-top: 1px solid rgba(30, 41, 59, 0.8);
-      background: rgba(2, 6, 23, 0.6);
+      border-top: 1px solid var(--hoebaek);
     }
 
     #journey {
-      border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+      border-bottom: 1px solid var(--hoebaek);
+    }
+
+    /* ── 먹 룸: 연구성과 섹션만 다크 (하드컷 명암 교차) ── */
+    #achievements {
+      background: var(--meok);
+      color: var(--seolbaek);
+    }
+
+    #achievements h2,
+    #achievements h3,
+    #achievements h4,
+    #achievements .text-white,
+    #achievements .text-slate-200 {
+      color: var(--seolbaek) !important;
+    }
+
+    #achievements .section-kicker,
+    #achievements .text-amber-400,
+    #achievements .text-amber-300,
+    #achievements .text-amber-200,
+    #achievements .text-cyan-400,
+    #achievements .text-cyan-300,
+    #achievements .text-cyan-200,
+    #achievements .text-emerald-300,
+    #achievements .achievement-stat-tab b,
+    #achievements .member-initial {
+      color: var(--geum) !important;
+    }
+
+    #achievements p,
+    #achievements li,
+    #achievements .text-slate-300,
+    #achievements .text-slate-400,
+    #achievements .text-slate-500 {
+      color: rgba(247, 243, 234, 0.72) !important;
+    }
+
+    #achievements .achievement-tab,
+    #achievements .achievement-panel,
+    #achievements .achievement-summary,
+    #achievements .achievement-item,
+    #achievements .glass-card {
+      background: rgba(247, 243, 234, 0.05);
+      border-color: rgba(247, 243, 234, 0.16);
+      color: var(--seolbaek);
+    }
+
+    #achievements .achievement-tab:hover,
+    #achievements .achievement-tab.is-active,
+    #achievements .achievement-item:hover,
+    #achievements .glass-card:hover {
+      border-color: var(--geum);
+      background: rgba(247, 243, 234, 0.09);
+      color: var(--seolbaek);
+    }
+
+    #achievements .achievement-item.is-highlight {
+      border-color: var(--geum);
+    }
+
+    #achievements .achievement-date {
+      background: var(--geum);
+      color: var(--meok);
+    }
+
+    #achievements .tag-pill,
+    #achievements .badge {
+      border-color: rgba(247, 243, 234, 0.28);
+      background: none;
+      color: rgba(247, 243, 234, 0.8);
     }
 
     section h2 {
       margin: 0;
-      color: #fff;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 900;
-      line-height: 1.12;
+      font-family: var(--font-serif-ko);
+      color: var(--meok);
+      font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.18;
     }
 
     section h3 {
       margin: 0;
-      color: #fff;
-      font-weight: 900;
-      line-height: 1.25;
+      font-family: var(--font-serif-ko);
+      color: var(--meok);
+      font-weight: 600;
+      line-height: 1.3;
     }
 
     section p {
@@ -974,26 +1056,27 @@
     }
 
     .glass-card p {
-      color: #cbd5e1;
+      color: var(--dammuk);
     }
 
     .glass-card .badge, .tag-pill {
       display: inline-flex;
       align-items: center;
       border-radius: 999px;
-      border: 1px solid rgba(36, 154, 164, 0.3);
-      background: rgba(36, 154, 164, 0.12);
+      border: 1px solid var(--hoebaek);
+      background: none;
       padding: 0.25rem 0.75rem;
-      color: #c9f8fb;
+      color: var(--dammuk);
       font-size: 0.75rem;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .section-kicker {
       margin: 0 0 0.75rem;
-      color: #5bd0d9;
-      font-size: 0.875rem;
-      font-weight: 900;
+      color: var(--dammuk);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
@@ -1004,10 +1087,10 @@
     footer {
       position: relative;
       z-index: 10;
-      border-top: 1px solid rgba(214, 164, 82, 0.2);
-      background: #050a14;
+      border-top: 1px solid var(--hoebaek);
+      background: var(--seolbaek);
       padding: 2.5rem 1.25rem;
-      color: rgba(255, 250, 240, 0.52);
+      color: var(--dammuk);
     }
 
     footer > div {
@@ -1028,24 +1111,24 @@
         justify-content: center;
         width: 2.5rem;
         height: 2.5rem;
-        border: 1px solid #334155;
+        border: 1px solid var(--meok);
         border-radius: 0.25rem;
-        background: rgba(15, 23, 42, 0.78);
-        color: #f8fafc;
+        background: none;
+        color: var(--meok);
       }
 
       header > div.mobile-menu {
-        border-top: 1px solid #1e293b;
-        background: rgba(2, 6, 23, 0.96);
+        border-top: 1px solid var(--hoebaek);
+        background: var(--hanji);
         padding: 0.75rem 1.25rem;
       }
 
       header > div.mobile-menu a {
         display: block;
-        border: 1px solid #1e293b;
+        border: 1px solid var(--hoebaek);
         border-radius: 0.25rem;
         padding: 0.85rem 1rem;
-        color: #e2e8f0;
+        color: var(--meok);
         font-weight: 700;
       }
 
@@ -1168,7 +1251,19 @@
       .achievement-item.is-highlight::after, .tech-acc.is-open .tag-pill {
         animation: none !important;
       }
-      .hero-logo-panel .ulsoo-logo-mark {
+      /* 붓글씨 워드마크 — 획의 자연 간격 보존(네거티브 트래킹 금지) */
+    .hero-wordmark {
+      margin: 0.4rem 0 0;
+      font-family: var(--font-brush);
+      font-size: clamp(4.5rem, 11vw, 7.5rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      color: var(--meok);
+      transform: rotate(-1.2deg);
+    }
+
+    .hero-logo-panel .ulsoo-logo-mark {
         animation: none !important;
         stroke-dashoffset: 0;
       }
@@ -1251,7 +1346,6 @@
   <main>
     <!-- ① Hero -->
     <section id="home">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_55%,rgba(34,211,238,0.12),transparent_27rem)]"></div>
       <div class="mx-auto grid w-full max-w-7xl items-center gap-12 py-16 lg:grid-cols-[1.08fr_0.92fr]">
         <div>
           <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/35 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-200">
@@ -1274,14 +1368,13 @@
         </div>
 
         <div class="relative mx-auto w-full max-w-xl">
-          <div class="absolute -inset-7 rounded-full bg-[radial-gradient(circle,rgba(214,164,82,0.18),rgba(36,154,164,0.12),transparent_70%)] blur-3xl"></div>
           <div class="hero-logo-panel relative overflow-hidden rounded">
             <div class="relative grid min-h-[32rem] place-items-center px-6 py-9">
-              <svg class="ulsoo-logo-mark drop-shadow-[0_26px_42px_rgba(0,0,0,0.35)]" role="img" aria-label="ULSOO 대표 로고">
+              <svg class="ulsoo-logo-mark" role="img" aria-label="ULSOO 대표 로고">
                 <use href="#ulsoo-logo-mark"></use>
               </svg>
               <div class="mt-4 text-center">
-                <p class="text-6xl font-black tracking-normal text-[var(--ulsoo-cream)] sm:text-7xl" style="margin:0;font-weight:900">ULSOO</p>
+                <p class="hero-wordmark">ULSOO</p>
                 <p class="mx-auto mt-3 max-w-sm text-base font-semibold leading-7 text-slate-300" x-text="data.teamInfo.fullName">Ultimate Sophisticated Object Technology meets culture</p>
               </div>
               <div class="kpi-grid">
@@ -1723,8 +1816,8 @@
         get lightbox() { return this.lightboxIdx >= 0 ? this.lightboxList[this.lightboxIdx] : null; },
 
         kpiColor(c) {
-          return { gold: "text-[#e8bb68]", teal: "text-[#5bd0d9]",
-                   coral: "text-[#e45f42]", cream: "text-[var(--ulsoo-cream)]" }[c] || "text-white";
+          return { gold: "text-[var(--geum-deep)]", teal: "text-[var(--geum-deep)]",
+                   coral: "text-[var(--geum-deep)]", cream: "text-[var(--meok)]" }[c] || "text-[var(--meok)]";
         },
         kpiDisplay(kpi) {
           const v = this.kpiCounts[kpi.label] ?? (this.kpiDone ? kpi.value : 0);
@@ -1908,12 +2001,12 @@
       const panelCaption = document.querySelector('.hero-logo-panel [x-text="data.teamInfo.fullName"]');
       if (panelCaption) panelCaption.textContent = D.teamInfo.fullName;
 
-      const kpiColors = { gold: "#e8bb68", teal: "#5bd0d9", coral: "#e45f42", cream: "#fffaf0" };
+      const kpiColors = { gold: "#7d5a1c", teal: "#7d5a1c", coral: "#7d5a1c", cream: "#171310" };
       const kpiGrid = document.querySelector(".kpi-grid");
       if (kpiGrid) {
         kpiGrid.innerHTML = D.kpis.map((k) => {
           const v = k.format === "comma" ? k.value.toLocaleString("ko-KR") : String(k.value);
-          return `<div><b style="color:${kpiColors[k.color] || "#fff"}">${escapeHtml(v + k.suffix)}</b><span>${escapeHtml(k.label)}</span></div>`;
+          return `<div><b style="color:${kpiColors[k.color] || "#171310"}">${escapeHtml(v + k.suffix)}</b><span>${escapeHtml(k.label)}</span></div>`;
         }).join("");
       }
 
@@ -1924,17 +2017,17 @@
           <div class="section-head">
             <p class="section-kicker">Research Journey</p>
             <h2>${escapeHtml(UI.journeyTitle)}</h2>
-            <p style="max-width:42rem;color:#94a3b8">${escapeHtml(UI.journeyLede)}</p>
+            <p style="max-width:42rem;color:#4f4839">${escapeHtml(UI.journeyLede)}</p>
           </div>
           ${D.journey.map((j) => `
             <div class="achievement-panel" style="margin-bottom:2rem">
               <p class="journey-verb" style="margin:0">${escapeHtml(j.verb)}</p>
               <h3 style="margin-top:.5rem">${escapeHtml(j.title)} — ${escapeHtml(j.subtitle)}</h3>
-              <p style="color:#94a3b8;font-size:.8rem;font-weight:700">${escapeHtml(j.funder)} | ${escapeHtml(j.period)}${j.status === "active" ? " · " + escapeHtml(UI.inProgress) : ""}</p>
-              <p style="color:#cbd5e1">${escapeHtml(j.mission)}</p>
-              ${j.siteUrl ? `<a href="${escapeHtml(j.siteUrl)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.35rem;color:#5bd0d9;font-size:.85rem;font-weight:900">${escapeHtml(UI.journeySite)} ↗</a>` : ""}
-              <ul style="color:#cbd5e1;line-height:1.9;padding-left:1.2rem">${j.highlights.map((h) => `<li>${escapeHtml(h)}</li>`).join("")}</ul>
-              <p style="color:#94a3b8;font-size:.8rem;font-weight:700">${escapeHtml(j.partners)}</p>
+              <p style="color:#4f4839;font-size:.8rem;font-weight:700">${escapeHtml(j.funder)} | ${escapeHtml(j.period)}${j.status === "active" ? " · " + escapeHtml(UI.inProgress) : ""}</p>
+              <p style="color:#4f4839">${escapeHtml(j.mission)}</p>
+              ${j.siteUrl ? `<a href="${escapeHtml(j.siteUrl)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.35rem;color:#7d5a1c;font-size:.85rem;font-weight:900">${escapeHtml(UI.journeySite)} ↗</a>` : ""}
+              <ul style="color:#4f4839;line-height:1.9;padding-left:1.2rem">${j.highlights.map((h) => `<li>${escapeHtml(h)}</li>`).join("")}</ul>
+              <p style="color:#4f4839;font-size:.8rem;font-weight:700">${escapeHtml(j.partners)}</p>
             </div>
           `).join("")}
         `;
@@ -1953,7 +2046,7 @@
               <p class="section-kicker">${escapeHtml(f.category)}</p>
               <h3>${escapeHtml(f.title)} — ${escapeHtml(f.tagline)}</h3>
               ${f.img ? `<img src="${escapeHtml(f.img)}" alt="${escapeHtml(f.imgAlt || f.title)}" loading="lazy" style="max-width:36rem;width:100%;border-radius:.25rem;margin:1rem 0" onerror="this.remove()">` : ""}
-              <p style="color:#cbd5e1;max-width:48rem">${escapeHtml(f.overview)}</p>
+              <p style="color:#4f4839;max-width:48rem">${escapeHtml(f.overview)}</p>
               ${f.techs.map((t) => `
                 <div class="tech-acc is-open" style="margin-top:.6rem">
                   <div style="display:flex;justify-content:space-between;gap:1rem;padding:.9rem 1rem;font-weight:800;color:#fffaf0">
@@ -1980,12 +2073,12 @@
             <div style="padding:1.5rem">
               <div style="display:flex;justify-content:space-between;gap:1rem;margin-bottom:1rem;flex-wrap:wrap">
                 <span class="tag-pill">${escapeHtml(project.tag)}</span>
-                ${project.hasBadge ? `<span class="tag-pill pulse-badge" style="border-color:rgba(214,164,82,.45);background:rgba(214,164,82,.12);color:#e8bb68">${escapeHtml(UI.badgeWebGL)}</span>` : ""}
+                ${project.hasBadge ? `<span class="tag-pill pulse-badge" style="border-color:var(--hoebaek);background:transparent;color:#7d5a1c">${escapeHtml(UI.badgeWebGL)}</span>` : ""}
               </div>
               <h3>${escapeHtml(project.title)}</h3>
               <p class="section-kicker" style="margin-top:.5rem">${escapeHtml(project.subtitle)}</p>
               <p>${escapeHtml(project.desc)}</p>
-              ${project.link ? `<a href="${escapeHtml(project.link)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.35rem;margin-top:1rem;color:#5bd0d9;font-size:.8rem;font-weight:900">${escapeHtml(UI.caseVisit)} ↗</a>` : ""}
+              ${project.link ? `<a href="${escapeHtml(project.link)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.35rem;margin-top:1rem;color:#7d5a1c;font-size:.8rem;font-weight:900">${escapeHtml(UI.caseVisit)} ↗</a>` : ""}
             </div>
           </article>
         `).join("");
@@ -2003,8 +2096,8 @@
             ${D.achievementSummary.map((s) => `
               <div class="achievement-tab achievement-stat-tab">
                 <span style="font-size:.85rem">${escapeHtml(s.label)}</span>
-                <b style="color:#e8bb68">${escapeHtml(s.count)}</b>
-                <span style="font-size:.75rem;color:#64748b;font-weight:700">${escapeHtml(s.detail)}</span>
+                <b style="color:#7d5a1c">${escapeHtml(s.count)}</b>
+                <span style="font-size:.75rem;color:#4f4839;font-weight:700">${escapeHtml(s.detail)}</span>
               </div>
             `).join("")}
           </div>
@@ -2014,14 +2107,14 @@
               <div class="achievement-panel" style="margin-bottom:2rem">
                 <p class="section-kicker">${escapeHtml(a.eyebrow)}</p>
                 <h3>${escapeHtml(s.label)}</h3>
-                <p style="color:#cbd5e1;max-width:48rem">${escapeHtml(a.desc)}</p>
+                <p style="color:#4f4839;max-width:48rem">${escapeHtml(a.desc)}</p>
                 <div class="achievement-list" style="margin-top:1rem">
                   ${a.items.map((item) => `
                     <article class="achievement-item ${item.highlight ? "is-highlight" : ""}">
                       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-bottom:.75rem">
                         <span class="achievement-date">${escapeHtml(item.date)}</span>
-                        ${item.type ? `<span style="color:#5bd0d9;font-size:.875rem;font-weight:800">${escapeHtml(item.type)}</span>` : ""}
-                        ${item.highlight ? `<span class="tag-pill" style="border-color:rgba(214,164,82,.35);background:rgba(214,164,82,.12);color:#e8bb68">${escapeHtml(UI.highlightBadge)}</span>` : ""}
+                        ${item.type ? `<span style="color:#7d5a1c;font-size:.875rem;font-weight:800">${escapeHtml(item.type)}</span>` : ""}
+                        ${item.highlight ? `<span class="tag-pill" style="border-color:var(--hoebaek);background:transparent;color:#7d5a1c">${escapeHtml(UI.highlightBadge)}</span>` : ""}
                       </div>
                       <h4 style="margin:0;color:#fff;font-size:1.05rem;line-height:1.5">${escapeHtml(item.title)}</h4>
                     </article>
@@ -2044,18 +2137,18 @@
           </div>
           <div class="member-grid">
             ${D.members.map((member, mi) => `
-              <article class="glass-card member-card" style="${mi === 0 ? "border-color:rgba(214,164,82,.55);box-shadow:0 0 28px rgba(214,164,82,.24)" : ""}">
+              <article class="glass-card member-card" style="${mi === 0 ? "border-color:var(--geum-deep);" : ""}">
                 <div class="member-avatar">
                   <div class="member-initial">${escapeHtml(member.name.charAt(0))}</div>
                   <img src="${escapeHtml(member.img)}" alt="${escapeHtml(member.name)}" loading="lazy" onerror="this.remove()">
                 </div>
                 <h3 style="margin-top:1rem">${escapeHtml(member.name)}</h3>
-                <p style="margin:.25rem 0 0;color:#e8bb68;font-size:.875rem;font-weight:700">${escapeHtml(member.role)}</p>
-                <p style="margin:.25rem 0 0;color:#94a3b8;font-size:.75rem">${escapeHtml(member.inst)}</p>
+                <p style="margin:.25rem 0 0;color:#7d5a1c;font-size:.875rem;font-weight:700">${escapeHtml(member.role)}</p>
+                <p style="margin:.25rem 0 0;color:#4f4839;font-size:.75rem">${escapeHtml(member.inst)}</p>
                 <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem">${member.tags.map((tag) => `<span class="tag-pill">${escapeHtml(tag)}</span>`).join("")}</div>
                 ${member.email !== "TODO_CONFIRM" ? `
-                  <p style="margin:.9rem 0 0;color:#5bd0d9;font-size:.75rem;font-weight:700">${escapeHtml(member.email)}</p>
-                  <button type="button" data-copy-email="${escapeHtml(member.email)}" style="margin-top:.5rem;border:1px solid rgba(36,154,164,.35);background:rgba(36,154,164,.12);color:#c9f8fb;border-radius:.25rem;padding:.4rem .8rem;font-size:.75rem;font-weight:800;cursor:pointer">${escapeHtml(UI.copyBtn)}</button>
+                  <p style="margin:.9rem 0 0;color:#7d5a1c;font-size:.75rem;font-weight:700">${escapeHtml(member.email)}</p>
+                  <button type="button" data-copy-email="${escapeHtml(member.email)}" style="margin-top:.5rem;border:1px solid var(--meok);background:transparent;color:#171310;border-radius:.25rem;padding:.4rem .8rem;font-size:.75rem;font-weight:800;cursor:pointer">${escapeHtml(UI.copyBtn)}</button>
                 ` : ""}
               </article>
             `).join("")}
@@ -2064,7 +2157,7 @@
             <p class="section-kicker">${escapeHtml(net.role)}</p>
             <h3>${escapeHtml(net.name)}</h3>
             <div class="grid" style="margin-top:1.25rem">
-              ${net.orgs.map((org) => `<div style="border:1px solid rgba(51,65,85,.8);border-radius:.25rem;background:rgba(15,23,42,.7);padding:1rem;font-weight:800">${escapeHtml(org)}</div>`).join("")}
+              ${net.orgs.map((org) => `<div style="border:1px solid var(--hoebaek);border-radius:.25rem;background:var(--seolbaek);padding:1rem;font-weight:800">${escapeHtml(org)}</div>`).join("")}
             </div>
             <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem">${net.tags.map((tag) => `<span class="tag-pill">${escapeHtml(tag)}</span>`).join("")}</div>
           </article>
