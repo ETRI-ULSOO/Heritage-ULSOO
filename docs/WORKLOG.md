@@ -221,3 +221,14 @@
   - 미리보기 패널이 백그라운드일 때 rAF가 멈춰 카운터가 중간값에 고정되는 현상은 패널 아티팩트(사이트 결함 아님, 패널 표시 상태에서 31,022·54+·3·30+·24+ 완주 확인)
 - **산출물**: [[index]] (315+/222− 변경), `assets/img/hanji-texture.webp`, 루트 [[DESIGN]] 승격
 - **남은 미해결**: 커밋·push 미실행(사용자 승인 대기 — push 시 GitHub Pages 자동 재배포). 실증사례 6건 공개 URL은 여전히 대기
+
+## 2026-08-05
+
+### 19차 작업 — CHIC 과제 링크를 리뉴얼 홈페이지로 교체
+- **배경**: CHIC 과제 홈페이지가 리뉴얼되어 ETRI-ULSOO/CHIC-Homepage 저장소로 이전(2026-08-05 push). 기존 Google Sites 링크가 구버전을 가리키고 있었음
+- **변경**: `assets/data.js` journey[chic].siteUrl 한/영 2곳
+  - 구: https://sites.google.com/view/intelligent-curation/home
+  - 신: https://etri-ulsoo.github.io/CHIC-Homepage/ (GitHub Pages API로 실제 배포 URL 확인, 브라우저 접속 검증)
+- **영향 범위**: data.js 단일 원천이므로 Alpine 렌더·CDN 폴백 양쪽에 자동 반영 (index.html 변경 없음). MUCH·ULSOO 링크는 불변
+- **검증(2026-08-05 실측)**: 로컬 서버에서 CHIC 탭 선택 시 링크 렌더 확인 — KO "과제 홈페이지 방문" / EN "Visit project site", href 정확, rel=noopener noreferrer, 콘솔 오류 0
+- **참고**: 여정 패널은 선택된 과제 1건만 렌더되므로 기본 상태(ULSOO, siteUrl 없음)에서는 링크가 보이지 않는 것이 정상 동작

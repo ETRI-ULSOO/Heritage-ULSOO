@@ -58,7 +58,7 @@ const ULSOO_I18N = {
 
     journey: [
       {
-        id: "chic", siteUrl: "https://sites.google.com/view/intelligent-curation/home", period: "2020 – 2022", status: "done", verb: "기록하다", title: "CHIC",
+        id: "chic", siteUrl: "https://etri-ulsoo.github.io/CHIC-Homepage/", period: "2020 – 2022", status: "done", verb: "기록하다", title: "CHIC",
         subtitle: "애셋 기반 지능형 큐레이션 및 서비스 운영기술",
         funder: "문화체육관광부 · 한국콘텐츠진흥원",
         mission: "문화유산을 고품질 디지털 애셋으로 표준화하고, 큐레이터가 직접 쓰는 AI 큐레이션 플랫폼을 국립중앙박물관에서 실증했습니다.",
@@ -264,7 +264,7 @@ const ULSOO_I18N = {
 
     journey: [
       {
-        id: "chic", siteUrl: "https://sites.google.com/view/intelligent-curation/home", period: "2020 – 2022", status: "done", verb: "Record.", title: "CHIC",
+        id: "chic", siteUrl: "https://etri-ulsoo.github.io/CHIC-Homepage/", period: "2020 – 2022", status: "done", verb: "Record.", title: "CHIC",
         subtitle: "Asset-based Intelligent Curation & Service Platform",
         funder: "Ministry of Culture, Sports and Tourism · KOCCA",
         mission: "We standardized cultural heritage into high-quality digital assets and demonstrated an AI curation platform used directly by curators at the National Museum of Korea.",
