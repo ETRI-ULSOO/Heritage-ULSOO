@@ -25,6 +25,7 @@ const ULSOO_I18N = {
       badgeWebGL: "WebGL 데모 체험 가능",
       caseZoom: "자세히 보기",
       caseVisit: "바로 확인하기",
+      heritageCaption: "인천국제공항 한국문화거리 — 문화유산 애셋으로 제작한 반가사유상 미디어월",
       achTitle: "연구성과",
       achLede: "성과를 나열하는 대신, 분야별로 무엇을 바꿨는지 보여드립니다. 숫자를 클릭하면 각 분야의 대표 성과를 확인할 수 있습니다.",
       highlightBadge: "대표성과",
@@ -59,15 +60,16 @@ const ULSOO_I18N = {
     journey: [
       {
         id: "chic", siteUrl: "https://etri-ulsoo.github.io/CHIC-Homepage/", period: "2020 – 2022", status: "done", verb: "기록하다", title: "CHIC",
+        img: "assets/img/heritage-sayu.webp", imgAlt: "CHIC 키비주얼 — 반가사유상 '공존과 지속'",
         subtitle: "애셋 기반 지능형 큐레이션 및 서비스 운영기술",
         funder: "문화체육관광부 · 한국콘텐츠진흥원",
         mission: "문화유산을 고품질 디지털 애셋으로 표준화하고, 큐레이터가 직접 쓰는 AI 큐레이션 플랫폼을 국립중앙박물관에서 실증했습니다.",
         highlights: [
           "문화유산 애셋 31,022개 구축 — 목표(2,600개)의 12배 달성",
-          "사업화 23건 · 약 200억 원 규모 — 문화유산 원형기록 통합 DB 등",
+          "사업화 21건 · 약 200억 원 규모 — 문화유산 원형기록 통합 DB 등",
           "전통문화 특화 언어모델 NER F1 89.0% — COLING 2022 발표"
         ],
-        partners: "국립중앙박물관 · 국립무형유산원 실증 / 문체부 장관표창(2022)"
+        partners: "국립중앙박물관 · 국립무형유산원 실증 / 문체부 장관표창(2021)"
       },
       {
         id: "much", siteUrl: "https://sites.google.com/view/much0/much", period: "2023 – 2025", status: "done", verb: "연결하다", title: "MUCH",
@@ -87,9 +89,9 @@ const ULSOO_I18N = {
         funder: "국가유산청",
         mission: "10억 픽셀 초고해상도 스캔과 멀티모달(UV·IR·XRF) 분석, 생성형 AI를 결합해 훼손된 문화유산의 원형을 과학적으로 복원하는 의사결정 지원 체계를 개발합니다.",
         highlights: [
-          "10억 픽셀급 기가스캔 + 0.5µm급 미세 균열 자동 탐지 (개발 목표)",
-          "생성형 AI 결손 복원 — 복원 정확도 SSIM 95% 목표",
-          "Linked Art·CRMsci·CRMdig 기반 복원 전주기 이력 관리 표준화"
+          "훼손된 표면을 10억 픽셀로 훑어, 육안으로 놓치는 균열의 결까지 그대로 남깁니다",
+          "UV·적외선·X선 형광으로 안료 아래 가려진 밑그림과 덧칠의 흔적을 읽어냅니다",
+          "생성형 AI가 결손부를 되살리고, 그 근거와 과정을 국제 표준(Linked Art·CIDOC CRM) 기록으로 남깁니다"
         ],
         partners: "ETRI(주관) · 중앙대학교 · 문화유산기술연구소 컨소시엄"
       }
@@ -149,7 +151,7 @@ const ULSOO_I18N = {
       { key: "publications", label: "논문", icon: "book-open",  count: "54+", detail: "국제 15+ · 국내 39+" },
       { key: "awards",       label: "수상", icon: "trophy",     count: "3",   detail: "국제 1 · 정부 1 · 기관 1" },
       { key: "patents",      label: "특허·표준", icon: "scroll-text", count: "30+", detail: "특허 20+ · SW 9 · 표준 1" },
-      { key: "business",     label: "사업화", icon: "briefcase", count: "24+", detail: "약 200억 원 규모" }
+      { key: "business",     label: "사업화", icon: "briefcase", count: "22+", detail: "약 200억 원 규모" }
     ],
 
     achievements: {
@@ -168,7 +170,7 @@ const ULSOO_I18N = {
         desc: "기술 혁신성과 문화 서비스 확산 기여를 국제기구와 정부로부터 공식 인정받았습니다.",
         items: [
           { type: "국제 수상", title: "AVICOM 2025 우수상 — 국제박물관협의회(ICOM) 시청각·뉴미디어 위원회, 관계기반 데이터 시각화 기술", date: "2025.11", highlight: true },
-          { type: "정부 포상", title: "문화체육관광부 장관표창 — 신기술융합콘텐츠 확산 및 박물관 디지털화 공로", date: "2022.12", highlight: true },
+          { type: "정부 포상", title: "문화체육관광부 장관표창 — 신기술융합콘텐츠 확산 및 박물관 디지털화 공로", date: "2021.01", highlight: true },
           { type: "기관 선정", title: "ETRI 우수성과 선정 — MUCH 디지털 헤리티지 플랫폼", date: "2025", highlight: false }
         ]
       },
@@ -186,7 +188,7 @@ const ULSOO_I18N = {
         eyebrow: "Business & Tech Transfer",
         desc: "연구 성과를 국가 사업과 기술 계약으로 연결해 산업 현장에 확산시켰습니다.",
         items: [
-          { type: "사업화", title: "사업화 23건 · 약 200억 원 규모 — 문화유산 원형기록 통합 DB 구축(약 130억) 등", date: "종합", highlight: true },
+          { type: "사업화", title: "사업화 21건 · 약 200억 원 규모 — 문화유산 원형기록 통합 DB 구축(약 130억) 등", date: "종합", highlight: true },
           { type: "기술이전", title: "국립중앙도서관 멀티모달 자동변환·메타데이터 생성(STT) 기술이전 및 MOU", date: "2026.01", highlight: true },
           { type: "데이터 자산", title: "고품질 문화유산 애셋 31,022개 구축 — 목표 대비 12배 초과 달성", date: "종합", highlight: false },
           { type: "실증 확산", title: "국립중앙박물관 테스트베드 및 5대 대국민 시범서비스 공개 (2025 박물관·미술관 박람회)", date: "2025", highlight: false }
@@ -231,6 +233,7 @@ const ULSOO_I18N = {
       badgeWebGL: "Live WebGL demo",
       caseZoom: "View larger",
       caseVisit: "Visit live page",
+      heritageCaption: "Korean Culture Street, Incheon International Airport — a Pensive Bodhisattva media wall built from heritage assets",
       achTitle: "Research Impact",
       achLede: "Instead of listing outcomes, we show what changed in each area. Click a number to see the flagship achievements for that category.",
       highlightBadge: "Flagship",
@@ -265,15 +268,16 @@ const ULSOO_I18N = {
     journey: [
       {
         id: "chic", siteUrl: "https://etri-ulsoo.github.io/CHIC-Homepage/", period: "2020 – 2022", status: "done", verb: "Record.", title: "CHIC",
+        img: "assets/img/heritage-sayu.webp", imgAlt: "CHIC key visual — Pensive Bodhisattva, 'Coexistence and Continuity'",
         subtitle: "Asset-based Intelligent Curation & Service Platform",
         funder: "Ministry of Culture, Sports and Tourism · KOCCA",
         mission: "We standardized cultural heritage into high-quality digital assets and demonstrated an AI curation platform used directly by curators at the National Museum of Korea.",
         highlights: [
           "Built 31,022 heritage assets — 12× the 2,600 target",
-          "23 commercialization deals worth ~KRW 20 billion — incl. the national heritage master-record DB",
+          "21 commercialization deals worth ~KRW 20 billion — incl. the national heritage master-record DB",
           "Traditional-culture NER language model at F1 89.0% — presented at COLING 2022"
         ],
-        partners: "Demonstrated at the National Museum of Korea & National Intangible Heritage Center / Minister's Commendation (2022)"
+        partners: "Demonstrated at the National Museum of Korea & National Intangible Heritage Center / Minister's Commendation (2021)"
       },
       {
         id: "much", siteUrl: "https://sites.google.com/view/much0/much", period: "2023 – 2025", status: "done", verb: "Connect.", title: "MUCH",
@@ -293,9 +297,9 @@ const ULSOO_I18N = {
         funder: "Korea Heritage Service",
         mission: "We are developing a decision-support system that scientifically restores damaged heritage by combining gigapixel scanning, multimodal (UV·IR·XRF) analysis, and generative AI.",
         highlights: [
-          "Gigapixel scanning + automatic detection of 0.5µm micro-cracks (development target)",
-          "Generative-AI loss restoration — SSIM 95% accuracy target",
-          "Full-lifecycle restoration provenance standardized on Linked Art · CRMsci · CRMdig"
+          "Sweeping damaged surfaces at a billion pixels, keeping the grain of every crack the eye would miss",
+          "Reading the underdrawing and overpaint hidden beneath pigment through UV, infrared and XRF",
+          "Generative AI revives what was lost — and records the evidence behind it on Linked Art · CIDOC CRM"
         ],
         partners: "ETRI (lead) · Chung-Ang University · TRIC consortium"
       }
@@ -355,7 +359,7 @@ const ULSOO_I18N = {
       { key: "publications", label: "Papers", icon: "book-open",  count: "54+", detail: "15+ intl. · 39+ domestic" },
       { key: "awards",       label: "Awards", icon: "trophy",     count: "3",   detail: "1 intl. · 1 gov't · 1 institute" },
       { key: "patents",      label: "Patents & Standards", icon: "scroll-text", count: "30+", detail: "20+ patents · 9 SW · 1 standard" },
-      { key: "business",     label: "Commercialization", icon: "briefcase", count: "24+", detail: "~KRW 20 billion" }
+      { key: "business",     label: "Commercialization", icon: "briefcase", count: "22+", detail: "~KRW 20 billion" }
     ],
 
     achievements: {
@@ -374,7 +378,7 @@ const ULSOO_I18N = {
         desc: "Our technical innovation and contribution to cultural services have been officially recognized by international bodies and the government.",
         items: [
           { type: "Intl. award", title: "AVICOM 2025 Award of Excellence — ICOM AV & New Media Committee, for relationship-based data visualization", date: "Nov 2025", highlight: true },
-          { type: "Gov't commendation", title: "Minister of Culture, Sports and Tourism Commendation — for advancing convergence content and museum digitization", date: "Dec 2022", highlight: true },
+          { type: "Gov't commendation", title: "Minister of Culture, Sports and Tourism Commendation — for advancing convergence content and museum digitization", date: "Jan 2021", highlight: true },
           { type: "Institute selection", title: "Selected as an ETRI outstanding achievement — the MUCH digital-heritage platform", date: "2025", highlight: false }
         ]
       },
@@ -392,7 +396,7 @@ const ULSOO_I18N = {
         eyebrow: "Business & Tech Transfer",
         desc: "We connect research outcomes to national projects and technology contracts, spreading them into industry.",
         items: [
-          { type: "Commercialization", title: "23 deals worth ~KRW 20 billion — incl. the heritage master-record integrated DB (~KRW 13 billion)", date: "Overall", highlight: true },
+          { type: "Commercialization", title: "21 deals worth ~KRW 20 billion — incl. the heritage master-record integrated DB (~KRW 13 billion)", date: "Overall", highlight: true },
           { type: "Tech transfer", title: "Multimodal auto-conversion & metadata generation (STT) tech transfer and MOU with the National Library of Korea", date: "Jan 2026", highlight: true },
           { type: "Data assets", title: "31,022 high-quality heritage assets built — 12× over target", date: "Overall", highlight: false },
           { type: "Demonstration", title: "National Museum testbed and five public pilot services unveiled (2025 Museums & Galleries Expo)", date: "2025", highlight: false }

@@ -793,6 +793,44 @@
       50% { opacity: 0.5; }
     }
 
+    /* 여정 패널 원형 비네트 — 유산 이미지는 원형 크롭 (DESIGN.md Circular Heritage Vignette) */
+    .journey-vignette {
+      width: 116px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+
+    .journey-vignette img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 풀블리드 유산 패널 — 문화유산 원본만 (DESIGN.md Heritage Panel) */
+    .heritage-panel {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .heritage-panel img {
+      width: 100%;
+      height: clamp(260px, 42vh, 460px);
+      object-fit: cover;
+      display: block;
+    }
+
+    .heritage-panel figcaption {
+      padding: 0.85rem 6vw 0;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      color: var(--dammuk);
+    }
+
     /* 실증사례 카드 이미지 */
     .case-thumb {
       position: relative;
@@ -1422,6 +1460,12 @@
           <div class="achievement-panel panel-anim mx-auto max-w-6xl" role="tabpanel">
             <div class="achievement-detail-grid">
               <div class="achievement-summary">
+                <template x-if="j.img">
+                  <div class="journey-vignette">
+                    <img :src="j.img" :alt="j.imgAlt || j.title" loading="lazy"
+                         @error="$el.parentElement.style.display='none'">
+                  </div>
+                </template>
                 <p class="journey-verb" style="margin:0" x-text="j.verb"></p>
                 <h3 class="mt-3 text-2xl" x-text="j.title"></h3>
                 <p class="mt-1 text-sm font-bold text-cyan-300" x-text="j.subtitle"></p>
@@ -1568,6 +1612,16 @@
         </div>
       </div>
     </section>
+
+    <!-- 유산 패널 — 실증 현장 실사 (풀블리드) -->
+    <figure class="heritage-panel reveal">
+      <img src="assets/img/heritage-mediawall.webp"
+           :alt="ui.heritageCaption"
+           alt="인천국제공항 한국문화거리 반가사유상 미디어월"
+           loading="lazy"
+           @error="$el.parentElement.style.display='none'">
+      <figcaption x-text="ui.heritageCaption">인천국제공항 한국문화거리 — 문화유산 애셋으로 제작한 반가사유상 미디어월</figcaption>
+    </figure>
 
     <!-- ⑤ 연구성과 -->
     <section id="achievements">
@@ -2021,6 +2075,7 @@
           </div>
           ${D.journey.map((j) => `
             <div class="achievement-panel" style="margin-bottom:2rem">
+              ${j.img ? `<img src="${escapeHtml(j.img)}" alt="${escapeHtml(j.imgAlt || j.title)}" loading="lazy" style="width:116px;height:116px;border-radius:50%;object-fit:cover;display:block;margin-bottom:1rem">` : ""}
               <p class="journey-verb" style="margin:0">${escapeHtml(j.verb)}</p>
               <h3 style="margin-top:.5rem">${escapeHtml(j.title)} — ${escapeHtml(j.subtitle)}</h3>
               <p style="color:#4f4839;font-size:.8rem;font-weight:700">${escapeHtml(j.funder)} | ${escapeHtml(j.period)}${j.status === "active" ? " · " + escapeHtml(UI.inProgress) : ""}</p>
