@@ -1469,7 +1469,7 @@
                 <p class="journey-verb" style="margin:0" x-text="j.verb"></p>
                 <h3 class="mt-3 text-2xl" x-text="j.title"></h3>
                 <p class="mt-1 text-sm font-bold text-cyan-300" x-text="j.subtitle"></p>
-                <p class="mt-2 text-xs font-bold text-slate-500" x-text="j.funder + ' | ' + j.period"></p>
+                <p class="mt-2 text-xs font-bold text-slate-500" x-text="j.funder + ' | ' + (j.periodFull || j.period)"></p>
                 <p class="mt-4 text-sm leading-7 text-slate-300" x-text="j.mission"></p>
                 <template x-if="j.siteUrl">
                   <a :href="j.siteUrl" target="_blank" rel="noopener noreferrer"
@@ -2078,7 +2078,7 @@
               ${j.img ? `<img src="${escapeHtml(j.img)}" alt="${escapeHtml(j.imgAlt || j.title)}" loading="lazy" style="width:116px;height:116px;border-radius:50%;object-fit:cover;display:block;margin-bottom:1rem">` : ""}
               <p class="journey-verb" style="margin:0">${escapeHtml(j.verb)}</p>
               <h3 style="margin-top:.5rem">${escapeHtml(j.title)} — ${escapeHtml(j.subtitle)}</h3>
-              <p style="color:#4f4839;font-size:.8rem;font-weight:700">${escapeHtml(j.funder)} | ${escapeHtml(j.period)}${j.status === "active" ? " · " + escapeHtml(UI.inProgress) : ""}</p>
+              <p style="color:#4f4839;font-size:.8rem;font-weight:700">${escapeHtml(j.funder)} | ${escapeHtml(j.periodFull || j.period)}${j.status === "active" ? " · " + escapeHtml(UI.inProgress) : ""}</p>
               <p style="color:#4f4839">${escapeHtml(j.mission)}</p>
               ${j.siteUrl ? `<a href="${escapeHtml(j.siteUrl)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.35rem;color:#7d5a1c;font-size:.85rem;font-weight:900">${escapeHtml(UI.journeySite)} ↗</a>` : ""}
               <ul style="color:#4f4839;line-height:1.9;padding-left:1.2rem">${j.highlights.map((h) => `<li>${escapeHtml(h)}</li>`).join("")}</ul>

@@ -61,15 +61,18 @@ const ULSOO_I18N = {
       {
         id: "chic", siteUrl: "https://etri-ulsoo.github.io/CHIC-Homepage/", period: "2020 – 2022", status: "done", verb: "기록하다", title: "CHIC",
         img: "assets/img/heritage-sayu.webp", imgAlt: "CHIC 키비주얼 — 반가사유상 '공존과 지속'",
+        // 타임라인 노드는 period(연도), 상세 패널은 periodFull(월 단위)을 쓴다.
+        // 세 과제의 노드 표기 granularity를 맞추기 위한 분리다.
+        periodFull: "2020.07 – 2022.12",
         subtitle: "애셋 기반 지능형 큐레이션 및 서비스 운영기술",
         funder: "문화체육관광부 · 한국콘텐츠진흥원",
         mission: "문화유산을 고품질 디지털 애셋으로 표준화하고, 큐레이터가 직접 쓰는 AI 큐레이션 플랫폼을 국립중앙박물관에서 실증했습니다.",
         highlights: [
           "문화유산 애셋 31,022개 구축 — 목표(2,600개)의 12배 달성",
           "사업화 21건 · 약 200억 원 규모 — 문화유산 원형기록 통합 DB 등",
-          "전통문화 특화 언어모델 NER F1 89.0% — COLING 2022 발표"
+          "문화유산 개체명 코퍼스 KOCHET 구축 · NER F1 89.0% — COLING 2022 발표"
         ],
-        partners: "국립중앙박물관 · 국립무형유산원 실증 / 문체부 장관표창(2021)"
+        partners: "ETRI(주관) · 문화유산기술연구소 · SQI소프트 · 한국전통문화대학교 · 디캐릭 컨소시엄 / 국립중앙박물관 · 국립무형유산원 실증 / 문체부 장관표창(2021)"
       },
       {
         id: "much", siteUrl: "https://sites.google.com/view/much0/much", period: "2023 – 2025", status: "done", verb: "연결하다", title: "MUCH",
@@ -144,7 +147,8 @@ const ULSOO_I18N = {
       { id: "gwanggaeto", title: "디지털 광개토대왕릉비", subtitle: "박물관 메인홀 상설 콘텐츠", desc: "정밀 3D 스캔 모델로 비문을 확대 탐독할 수 있는 디지털 릉비. 2024년 2월부터 국립중앙박물관 1층 로비에서 관람객을 맞고 있습니다.", tag: "상설 전시", icon: "landmark", link: "", img: "assets/img/case-gwanggaeto.webp", hasBadge: false },
       { id: "hwaseong", title: "초고해상도 화성행궁", subtitle: "기가픽셀 딥줌 뷰어", desc: "정조 화성행궁 그림을 기가픽셀 딥줌(DZI)으로 탐험하는 콘텐츠. 지도 핀을 클릭하면 장면별 해설과 오디오가 연동됩니다.", tag: "기가픽셀", icon: "zoom-in", link: "", img: "assets/img/case-hwaseong.webp", hasBadge: false },
       { id: "route", title: "맞춤형 관람 동선 추천", subtitle: "지식그래프 개인화 안내", desc: "유물 지식그래프의 의미적 연관도를 기반으로 개인 취향에 맞는 관람 동선을 수 초 내에 추천하고 실제 길안내까지 연결합니다.", tag: "개인화 서비스", icon: "route", link: "", img: "assets/img/case-route.webp", hasBadge: false },
-      { id: "chic-legacy", title: "'사유의 방' & 메타버스 박물관", subtitle: "CHIC 실증 유산", desc: "반가사유상 극사실 애셋으로 국립중앙박물관 '사유의 방' 전시에 참여하고, 제페토·다중접속 VR로 5개 국립박물관 공간을 메타버스에 재현했습니다.", tag: "XR·메타버스", icon: "orbit", link: "", img: "assets/img/case-metaverse.webp", hasBadge: false }
+      { id: "chic-legacy", title: "'사유의 방' & 메타버스 박물관", subtitle: "CHIC 실증 유산", desc: "반가사유상 극사실 애셋으로 국립중앙박물관 '사유의 방' 전시에 참여하고, 다중접속 VR로 국립박물관 전시 공간을 메타버스에 재현했습니다. AR/VR 시범 콘텐츠 7종을 제작했습니다.", tag: "XR·메타버스", icon: "orbit", link: "", img: "assets/img/case-metaverse.webp", hasBadge: false },
+      { id: "robotarm", title: "로봇팔 자동 취득 시스템", subtitle: "국내 최초 유물 촬영 자동화", desc: "촬영자의 숙련도에 따라 품질이 갈리던 유물 촬영을 로봇팔과 턴테이블로 자동화했습니다. 최고 3m 대형 유물까지 균일한 품질의 원천 데이터를 확보합니다.", tag: "데이터 획득", icon: "camera", link: "", img: "assets/img/case-robotarm.webp", hasBadge: false }
     ],
 
     achievementSummary: [
@@ -160,7 +164,7 @@ const ULSOO_I18N = {
         desc: "세계 최고 권위의 AI 학회와 국내외 학술지에서 문화유산 특화 알고리즘의 독보성을 검증받았습니다.",
         items: [
           { type: "Top-tier 국제학회", title: "ICCV 2025 — RGB·X-ray 융합 3D Gaussian Splatting 비파괴 분석 연구 발표", date: "2025.10", highlight: true },
-          { type: "Top-tier 국제학회", title: "COLING 2022 — 한국 전통문화 특화 언어모델·개체명 인식 연구 발표", date: "2022.10", highlight: true },
+          { type: "Top-tier 국제학회", title: "COLING 2022 — 문화유산 개체명 코퍼스 KOCHET 발표 (한국 전통문화 특화 개체명 인식)", date: "2022.10", highlight: true },
           { type: "국제 학술대회", title: "SCOPUS 등재 국제 학술대회 논문 15편 발표 (문화유산 AI·데이터 표준 분야)", date: "누적", highlight: false },
           { type: "국내 학술", title: "국내 저널·학술대회 39편 게재 및 발표 — 전통회화 객체 인식, 관계망 시각화 등", date: "누적", highlight: false }
         ]
@@ -269,15 +273,16 @@ const ULSOO_I18N = {
       {
         id: "chic", siteUrl: "https://etri-ulsoo.github.io/CHIC-Homepage/", period: "2020 – 2022", status: "done", verb: "Record.", title: "CHIC",
         img: "assets/img/heritage-sayu.webp", imgAlt: "CHIC key visual — Pensive Bodhisattva, 'Coexistence and Continuity'",
+        periodFull: "Jul 2020 – Dec 2022",
         subtitle: "Asset-based Intelligent Curation & Service Platform",
         funder: "Ministry of Culture, Sports and Tourism · KOCCA",
         mission: "We standardized cultural heritage into high-quality digital assets and demonstrated an AI curation platform used directly by curators at the National Museum of Korea.",
         highlights: [
           "Built 31,022 heritage assets — 12× the 2,600 target",
           "21 commercialization deals worth ~KRW 20 billion — incl. the national heritage master-record DB",
-          "Traditional-culture NER language model at F1 89.0% — presented at COLING 2022"
+          "KOCHET, a Korean heritage entity corpus · NER F1 89.0% — presented at COLING 2022"
         ],
-        partners: "Demonstrated at the National Museum of Korea & National Intangible Heritage Center / Minister's Commendation (2021)"
+        partners: "ETRI (lead) · TRIC · SQI Soft · Korea National University of Cultural Heritage · dcarrick consortium / Demonstrated at the National Museum of Korea & National Intangible Heritage Center / Minister's Commendation (2021)"
       },
       {
         id: "much", siteUrl: "https://sites.google.com/view/much0/much", period: "2023 – 2025", status: "done", verb: "Connect.", title: "MUCH",
@@ -352,7 +357,8 @@ const ULSOO_I18N = {
       { id: "gwanggaeto", title: "Digital Gwanggaeto Stele", subtitle: "Permanent main-hall content", desc: "A precise 3D-scanned model lets visitors zoom in and read the stele inscription. It has greeted visitors in the National Museum's first-floor lobby since February 2024.", tag: "Permanent exhibition", icon: "landmark", link: "", img: "assets/img/case-gwanggaeto.webp", hasBadge: false },
       { id: "hwaseong", title: "Ultra-HD Hwaseong Palace", subtitle: "Gigapixel deep-zoom viewer", desc: "Content for exploring the painting of King Jeongjo's Hwaseong Palace via gigapixel deep zoom (DZI). Clicking map pins links scene-by-scene commentary and audio.", tag: "Gigapixel", icon: "zoom-in", link: "", img: "assets/img/case-hwaseong.webp", hasBadge: false },
       { id: "route", title: "Personalized Tour Route", subtitle: "Knowledge-graph personalized guide", desc: "Based on semantic relevance in the artifact knowledge graph, it recommends a tour route matched to personal taste within seconds and connects to real wayfinding.", tag: "Personalization", icon: "route", link: "", img: "assets/img/case-route.webp", hasBadge: false },
-      { id: "chic-legacy", title: "'Room of Contemplation' & Metaverse", subtitle: "CHIC demonstration legacy", desc: "Using hyper-realistic Pensive Bodhisattva assets, we contributed to the National Museum's 'Room of Quiet Contemplation' and recreated five national museums in the metaverse via ZEPETO and multi-user VR.", tag: "XR · Metaverse", icon: "orbit", link: "", img: "assets/img/case-metaverse.webp", hasBadge: false }
+      { id: "chic-legacy", title: "'Room of Contemplation' & Metaverse", subtitle: "CHIC demonstration legacy", desc: "Using hyper-realistic Pensive Bodhisattva assets, we contributed to the National Museum's 'Room of Quiet Contemplation' and recreated national museum galleries in a multi-user VR metaverse, producing seven AR/VR pilot content pieces.", tag: "XR · Metaverse", icon: "orbit", link: "", img: "assets/img/case-metaverse.webp", hasBadge: false },
+      { id: "robotarm", title: "Robotic-arm capture system", subtitle: "Korea's first automated artifact photography", desc: "Artifact photography, where quality once depended on the operator's skill, is now automated with a robotic arm and turntable — securing uniform source data for objects up to 3 m.", tag: "Data acquisition", icon: "camera", link: "", img: "assets/img/case-robotarm.webp", hasBadge: false }
     ],
 
     achievementSummary: [
@@ -368,7 +374,7 @@ const ULSOO_I18N = {
         desc: "Our heritage-specialized algorithms have been validated at the world's top AI conferences and in domestic and international journals.",
         items: [
           { type: "Top-tier intl. conf.", title: "ICCV 2025 — RGB·X-ray fusion 3D Gaussian Splatting for non-destructive analysis", date: "Oct 2025", highlight: true },
-          { type: "Top-tier intl. conf.", title: "COLING 2022 — Korean traditional-culture language model & named-entity recognition", date: "Oct 2022", highlight: true },
+          { type: "Top-tier intl. conf.", title: "COLING 2022 — KOCHET, a Korean cultural-heritage corpus for entity-related tasks", date: "Oct 2022", highlight: true },
           { type: "Intl. conferences", title: "15 SCOPUS-indexed international conference papers (heritage AI & data standards)", date: "Cumulative", highlight: false },
           { type: "Domestic academic", title: "39 domestic journal & conference papers — traditional-painting object recognition, relationship-graph visualization, and more", date: "Cumulative", highlight: false }
         ]
