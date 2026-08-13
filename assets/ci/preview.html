@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>ULSOO CI — 검수 시트</title>
+<style>
+  :root { --hanji:#e7e0d2; --meok:#171310; --baekja:#f2ede2; --hoebaek:#cfc7b4; --dammuk:#4f4839; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Pretendard,-apple-system,system-ui,sans-serif;background:var(--hanji);color:var(--meok);padding:32px 5vw 64px}
+  h1{font-size:20px;margin-bottom:4px}
+  .sub{font-size:12px;color:var(--dammuk);margin-bottom:28px}
+  h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dammuk);margin:32px 0 10px;font-weight:600}
+  .row{display:flex;gap:20px;align-items:flex-end;flex-wrap:wrap;background:var(--baekja);border:1px solid var(--hoebaek);border-radius:9px;padding:22px}
+  .row.dark{background:var(--meok)}
+  .cell{text-align:center}
+  .cell img{display:block}
+  .cap{font-size:10px;color:var(--dammuk);margin-top:8px}
+  .dark .cap{color:#f7f3ea99}
+  .minrow{display:flex;gap:26px;align-items:flex-end;flex-wrap:wrap}
+  .dont .cell{width:210px;overflow:hidden;display:flex;flex-direction:column;align-items:center}
+  .dont .cell img{transform-origin:center}
+</style>
+</head>
+<body>
+<h1>ULSOO CI — 검수 시트</h1>
+<div class="sub">시그니처 조합 · 배경별 운용 · 최소 크기 확인용</div>
+
+<h2>1 · 심볼</h2>
+<div class="row">
+  <div class="cell"><img src="ulsoo-symbol.svg" height="90"><div class="cap">오방색 (기본)</div></div>
+  <div class="cell"><img src="ulsoo-symbol-mono-meok.svg" height="90"><div class="cap">먹 단색</div></div>
+</div>
+<div class="row dark" style="margin-top:10px">
+  <div class="cell"><img src="ulsoo-symbol.svg" height="90"><div class="cap">오방색 / 먹 배경</div></div>
+  <div class="cell"><img src="ulsoo-symbol-mono-white.svg" height="90"><div class="cap">설백 단색</div></div>
+</div>
+
+<h2>2 · 워드마크</h2>
+<div class="row"><div class="cell"><img src="ulsoo-wordmark.svg" height="64"><div class="cap">붓 워드마크 (아웃라인 · 폰트 의존 없음)</div></div></div>
+
+<h2>3 · 시그니처 가로형</h2>
+<div class="row"><div class="cell"><img src="ulsoo-signature-horizontal.svg" height="80"><div class="cap">기본 조합</div></div></div>
+
+<h2>4 · 시그니처 세로형</h2>
+<div class="row"><div class="cell"><img src="ulsoo-signature-vertical.svg" height="130"><div class="cap">정방형 공간용</div></div></div>
+
+<h2>5 · 최소 크기 (실측 기준)</h2>
+<div class="row">
+  <div class="minrow">
+    <div class="cell"><img src="ulsoo-symbol.svg" height="16"><div class="cap">심볼 16 ✗</div></div>
+    <div class="cell"><img src="ulsoo-symbol.svg" height="24"><div class="cap">24 △</div></div>
+    <div class="cell"><img src="ulsoo-symbol.svg" height="32"><div class="cap">32 ✓ 최소</div></div>
+    <div class="cell"><img src="../favicon.svg" height="16"><div class="cap">파비콘 16 ✓</div></div>
+    <div class="cell"><img src="ulsoo-signature-horizontal.svg" width="90"><div class="cap">가로 90 ✗</div></div>
+    <div class="cell"><img src="ulsoo-signature-horizontal.svg" width="120"><div class="cap">120 ✓ 최소</div></div>
+    <div class="cell"><img src="ulsoo-signature-vertical.svg" width="80"><div class="cap">세로 80 ✓ 최소</div></div>
+  </div>
+</div>
+
+<h2>6 · 보호 여백 (clear space)</h2>
+<div class="row">
+  <div class="cell">
+    <div style="position:relative;display:inline-block;padding:26px;outline:1px dashed var(--hoebaek)">
+      <div style="position:absolute;inset:26px;outline:1px solid #d6a45255"></div>
+      <img src="ulsoo-signature-horizontal.svg" height="104">
+    </div>
+    <div class="cap">사방 여백 = 심볼 높이 × 0.25 (여기서는 26px). 이 안에는 어떤 요소도 넣지 않는다</div>
+  </div>
+</div>
+
+<h2>7 · 금지 사례</h2>
+<div class="row dont">
+  <div class="cell"><img src="ulsoo-signature-horizontal.svg" height="60" style="transform:scaleX(1.45)"><div class="cap">✗ 왜곡</div></div>
+  <div class="cell"><img src="ulsoo-signature-horizontal.svg" height="60" style="filter:hue-rotate(150deg)"><div class="cap">✗ 색 변경</div></div>
+  <div class="cell"><img src="ulsoo-signature-horizontal.svg" height="60" style="filter:drop-shadow(3px 4px 5px #0007)"><div class="cap">✗ 그림자</div></div>
+  <div class="cell"><img src="ulsoo-signature-horizontal.svg" height="60" style="transform:rotate(-9deg)"><div class="cap">✗ 회전</div></div>
+  <div class="cell" style="background:#7a1f1f;padding:10px 14px;border-radius:6px"><img src="ulsoo-symbol.svg" height="52"><div class="cap" style="color:#fff9">✗ 저대비 배경</div></div>
+</div>
+</body>
+</html>
